@@ -11,18 +11,18 @@
 * [ ] Créer la page de gestion des préfixes.
 * [ ] Ajouter un formulaire :
 
-  * [ ] Champ **Préfixe** (3 chiffres).
+  * [ ] Champ *Préfixe* (3 chiffres).
 * [ ] Afficher la liste des préfixes existants.
 
 ### Métier
 
 * [ ] Vérifier que le préfixe n'existe pas déjà.
-* [ ] Vérifier que le préfixe contient exactement **3 chiffres**.
+* [ ] Vérifier que le préfixe contient exactement *3 chiffres*.
 * [ ] Insérer le préfixe.
 
 ### Base de données
 
-* [ ] Créer la table **prefix**.
+* [ ] Créer la table *prefix*.
 
 ---
 
@@ -46,11 +46,11 @@
 
 ### Base de données
 
-* [ ] Créer la table **frais**.
+* [ ] Créer la table *frais*.
 
 ---
 
-## 📌 Situation des gains
+## Situation des gains
 
 ### Affichage
 
@@ -119,7 +119,7 @@
 
 ### Base de données
 
-* [ ] Créer la table **type_operation**
+* [ ] Créer la table *type_operation*
 
   * [ ] id
   * [ ] libelle
@@ -286,35 +286,3 @@
 * [ ] operation_utilisateur
 * [ ] frais
 * [ ] v_solde (Vue SQL)
-
----
-
-#  Priorité de développement
-
-### Sprint 1
-
-* [ ] Création des tables.
-* [ ] Gestion des préfixes.
-* [ ] Login.
-
-### Sprint 2
-
-* [ ] Dépôt.
-* [ ] Calcul du solde.
-* [ ] Vue `v_solde`.
-
-### Sprint 3
-
-* [ ] Retrait.
-* [ ] Gestion des frais.
-
-### Sprint 4
-
-* [ ] Transfert.
-
-### Sprint 5
-
-* [ ] Historique.
-* [ ] Liste des clients.
-* [ ] Situation des gains.
-* [ ] Finalisation et tests.

@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UtilisateurModel extends Model
+class PrefixModel extends Model
 {
-    protected $table            = 'utilisateur';
+    protected $table            = 'prefix';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ['numero'];
+    protected $allowedFields    = ['prefix'];
 
     protected $validationRules = [
-        'numero' => 'required|max_length[10]',
+        'prefix' => 'required|max_length[3]',
     ];
 }
