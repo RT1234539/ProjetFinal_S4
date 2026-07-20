@@ -16,6 +16,10 @@ CREATE TABLE
         role VARCHAR(20) NOT NULL
     );
 
+INSERT INTO role (role) VALUES 
+('operateur'),
+('client');
+
 CREATE TABLE
     utilisateur (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
