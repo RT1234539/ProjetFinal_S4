@@ -86,7 +86,7 @@ cote client
             prefix
     acceuil
         -affichage:
-            -afficher le solde d'utilisateur actuel connecter apres login mais ignorer le login et je fais apres mais fait le acceuil
+            -afficher le solde d'utilisateur actuel connecter apres login 
 
             boutton pour faire 
                 -le depot

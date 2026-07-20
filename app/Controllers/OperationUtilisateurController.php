@@ -3,13 +3,25 @@
 namespace App\Controllers;
 
 use App\Models\OperationUtilisateurModel;
+use App\Models\SoldeModel;
+use App\Models\FraisModel;
+use App\Models\PrefixModel;
+use App\Models\UtilisateurModel;
 
 class OperationUtilisateurController extends BaseController
 {
     protected OperationUtilisateurModel $operationUtilisateurModel;
+    protected SoldeModel $soldeModel;
+    protected FraisModel $fraisModel;
+    protected PrefixModel $prefixModel;
+    protected UtilisateurModel $utilisateurModel;
 
     public function __construct(){
         $this->operationUtilisateurModel = new OperationUtilisateurModel();
+        $this->soldeModel = new SoldeModel();
+        $this->fraisModel = new FraisModel();
+        $this->prefixModel = new PrefixModel();
+        $this->utilisateurModel = new UtilisateurModel();
     }
 
     private function getIdUtilisateur(){
@@ -20,11 +32,11 @@ class OperationUtilisateurController extends BaseController
     public function voirSolde(){
         $solde = $this->soldeModel->getSoldeParUtilisateur($this->getIdUtilisateur());
         $data['solde'] = $solde;
-        return view('clients/solde', $data);
+        return view('client/solde', $data);
     }
 
     public function depotForm(){
-        return view('clients/depot');
+        return view('client/depot');
     }
 
     public function faireUnDepot(){
@@ -43,11 +55,11 @@ class OperationUtilisateurController extends BaseController
             'date'           => date('Y-m-d'),
         ]);
 
-        return redirect()->to('/client/accueil')->with('success', 'Dépôt effectué avec succès.');
+        return redirect()->to('/accueil')->with('success', 'Dépôt effectué avec succès.');
     }
 
     public function retraitForm(){
-        return view('clients/retrait');
+        return view('client/retrait');
     }
 
     public function faireUnRetrait(){
@@ -80,12 +92,12 @@ class OperationUtilisateurController extends BaseController
             'date'           => date('Y-m-d'),
         ]);
 
-        return redirect()->to('/client/accueil')->with('success', 'Retrait effectué avec succès.');
+        return redirect()->to('/accueil')->with('success', 'Retrait effectué avec succès.');
     }
 
     public function transfertForm()
     {
-        return view('clients/transfert');
+        return view('client/transfert');
     }
 
     public function faireUnTransfert()
@@ -145,7 +157,7 @@ class OperationUtilisateurController extends BaseController
             'date'           => date('Y-m-d'),
         ]);
 
-        return redirect()->to('/client/accueil')->with('success',
+        return redirect()->to('/accueil')->with('success',
             'Transfert de ' . number_format($montant, 0, ',', ' ') . ' Ar vers ' . $numeroDestinataire . ' effectué.'
         );
     }
@@ -162,6 +174,6 @@ class OperationUtilisateurController extends BaseController
             ->findAll();
 
         $data['historique'] = $historique;
-        return view('clients/historique', $data);
+        return view('client/historique', $data);
     }
 }

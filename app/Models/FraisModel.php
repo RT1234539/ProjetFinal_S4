@@ -18,4 +18,12 @@ class FraisModel extends Model
             ->join('operation', 'operation.id = frais.id_operation')
             ->findAll();
     }
+
+    public function getFraisApplicable(float $montant, int $idOperation): ?array
+    {
+        return $this->where('id_operation', $idOperation)
+            ->where('montant1 <=', $montant)
+            ->where('montant2 >=', $montant)
+            ->first();
+    }
 }

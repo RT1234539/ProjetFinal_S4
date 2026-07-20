@@ -10,7 +10,7 @@ class UtilisateurModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ['numero'];
+    protected $allowedFields    = ['numero', 'id_role'];
 
 
     public function listerClientsAvecDetails(): array
