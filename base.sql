@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS utilisateur;
+
+CREATE TABLE utilisateur (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nom VARCHAR(50) NOT NULL,
+    numero VARCHAR(10) NOT NULL    
+);
