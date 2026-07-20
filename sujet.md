@@ -86,7 +86,7 @@ cote client
             prefix
     acceuil
         -affichage:
-            -afficher le solde d'utilisateur actuel
+            -afficher le solde d'utilisateur actuel connecter apres login mais ignorer le login et je fais apres mais fait le acceuil
 
             boutton pour faire 
                 -le depot
@@ -162,3 +162,18 @@ cote client
                     frais
                     prefix
                     v_solde
+
+
+
+
+git remote -v
+git config --global user.name
+git remote -v
+git config --global credential.helper
+git remote -v
+git config --global user.name
+git config --global user.email
+git config --global credential.helper
+cat ~/.git-credentials 2>/dev/null
+ssh -T git@github.com
+rm ~/.git-credentials

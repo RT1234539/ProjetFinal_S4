@@ -8,7 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 // Routes existantes
 $routes->group('frais', function ($routes) {
-    $routes->get('ajouter', 'FraisController::ajouter');
+    $routes->get('ajouter', 'FraisController::ajouterForm');
     $routes->post('ajouter', 'FraisController::insert');
 });
 
