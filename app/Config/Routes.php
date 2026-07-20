@@ -11,3 +11,5 @@ $routes->group('frais', function ($routes) {
     $routes->get('ajouter', 'FraisController::ajouter');
     $routes->post('ajouter', 'FraisController::insert');
 });
+
+$routes->get('gains', 'GainsController::listeGains');

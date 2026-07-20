@@ -1,3 +1,4 @@
+DROP VIEW IF EXISTS v_gains_complet;
 
 CREATE VIEW v_gains_complet AS
 SELECT 
