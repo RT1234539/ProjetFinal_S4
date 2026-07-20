@@ -25,53 +25,57 @@ class UtilisateurController extends BaseController
         return view("login");
     }
 
-    // public function login()
-    // {
-    //     try {
-    //         $session = session();
-    //         $tel = $this->request->getPost("telephone");
+    public function login()
+    {
+        try {
+            $session = session();
+            $tel = $this->request->getPost("telephone");
 
-    //         $prefix = substr($tel, 0, 3);
+            $prefix = substr($tel, 0, 3);
 
-    //         $prefixExiste = $this->prefixModel->where('prefix', $prefix)->first();
+            $prefixExiste = $this->prefixModel->where('prefix', $prefix)->first();
 
-    //         if (!$prefixExiste) {
-    //             throw new Exception("Le numéro de téléphone ne commence pas par un préfixe valide.");
-    //         }
+            if (!$prefixExiste) {
+                throw new Exception("Le numéro de téléphone ne commence pas par un préfixe valide.");
+            }
 
-    //         $utilisateur = $this->utilisateurModel->where('numero', $tel)->first();
+            $utilisateur = $this->utilisateurModel->where('numero', $tel)->first();
 
-    //         //
-    //         if ($utilisateur) {
-    //             $session->set('user', $utilisateur);
-    //         } else {
-    //             $data = ['numero' => $tel];
+            //
+            if ($utilisateur) {
+                $session->set('user', $utilisateur);
+            } else {
+                $data = ['numero' => $tel];
 
-    //             $id = $this->utilisateurModel->insert($data);
+                $id = $this->utilisateurModel->insert($data);
 
-    //             if (!$id) {
-    //                 throw new Exception("Erreur lors de la création de l'utilisateur.");
-    //             }
+                if (!$id) {
+                    throw new Exception("Erreur lors de la création de l'utilisateur.");
+                }
 
-    //             $nouvelUtilisateur = $this->utilisateurModel->find($id);
-    //             $session->set('user', $nouvelUtilisateur);
-    //         }
+                $nouvelUtilisateur = $this->utilisateurModel->find($id);
+                $session->set('user', $nouvelUtilisateur);
+            }
 
-    //         return view("welcome_message");
-    //     } catch (Exception $e) {
-    //         $data = [
-    //             'status' => 'error',
-    //             'message' => $e->getMessage(),
-    //         ];
+            return view("welcome_message");
 
-    //         return view("login", $data);
-    //     }
-    // }
+        } catch (Exception $e) {
+            $data = [
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ];
+
+            return view("login", $data);
+        }
+    }
 
     public function accueil()
     {
         $user = session()->get('user');
-        $id = $user['id'] ?? null;
+        if (!$user) {
+            return redirect()->to('/');
+        }
+        $id = (int) $user['id'];
         $solde = $this->soldeModel->getSoldeParUtilisateur($id);
         $data = [
             'user'  => $user,

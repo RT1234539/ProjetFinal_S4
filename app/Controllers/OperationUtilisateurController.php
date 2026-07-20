@@ -24,9 +24,19 @@ class OperationUtilisateurController extends BaseController
         $this->utilisateurModel = new UtilisateurModel();
     }
 
-    private function getIdUtilisateur(){
+    private function requireAuth(): int
+    {
         $user = session()->get('user');
-        return $user['id'] ?? null;
+        if (!$user) {
+            return 0;
+        }
+        return (int) $user['id'];
+    }
+
+    private function getIdUtilisateur(): int
+    {
+        $user = session()->get('user');
+        return (int) ($user['id'] ?? 0);
     }
 
     public function voirSolde(){
