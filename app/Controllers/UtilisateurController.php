@@ -4,17 +4,20 @@ namespace App\Controllers;
 
 use App\Models\UtilisateurModel;
 use App\Models\PrefixModel;
+use App\Models\SoldeModel;
 use Exception;
 
 class UtilisateurController extends BaseController
 {
     protected UtilisateurModel $utilisateurModel;
     protected PrefixModel $prefixModel;
+    protected SoldeModel $soldeModel;
 
     public function __construct()
     {
         $this->utilisateurModel = new UtilisateurModel();
         $this->prefixModel      = new PrefixModel();
+        $this->soldeModel       = new SoldeModel();
     }
 
     public function loginForm()
@@ -55,6 +58,7 @@ class UtilisateurController extends BaseController
             }
 
             return view("welcome_message");
+
         } catch (Exception $e) {
             $data = [
                 'status' => 'error',
@@ -62,7 +66,27 @@ class UtilisateurController extends BaseController
             ];
 
             return view("login", $data);
-            // throw $e;
         }
+    }
+
+    public function accueil()
+    {
+        $user = session()->get('user');
+        if (!$user) {
+            return redirect()->to('/');
+        }
+        $id = (int) $user['id'];
+        $solde = $this->soldeModel->getSoldeParUtilisateur($id);
+        $data = [
+            'user'  => $user,
+            'solde' => $solde,
+        ];
+        return view('client/accueil', $data);
+    }
+
+    public function listeClients()
+    {
+        $data['clients'] = $this->utilisateurModel->listerClientsAvecDetails();
+        return view('operateur/clients_list', $data);
     }
 }

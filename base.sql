@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS role;
+
 DROP TABLE IF EXISTS operation_utilisateur;
 
 DROP TABLE IF EXISTS frais;
@@ -9,15 +11,23 @@ DROP TABLE IF EXISTS utilisateur;
 DROP TABLE IF EXISTS prefix;
 
 CREATE TABLE
+    role (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        role VARCHAR(20) NOT NULL
+    );
+
+CREATE TABLE
     utilisateur (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        numero VARCHAR(10) NOT NULL
+        numero VARCHAR(10) NOT NULL,
+        id_role INTEGER NOT NULL DEFAULT 2
     );
 
 CREATE TABLE
     prefix (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        prefix VARCHAR(3) NOT NULL
+        prefix VARCHAR(3) NOT NULL,
+        nom VARCHAR(50) NOT NULL
     );
 
 CREATE TABLE
@@ -56,6 +66,8 @@ CREATE TABLE
         FOREIGN KEY (id_frais) REFERENCES frais (id)
     );
 
+DROP VIEW IF EXISTS v_gains_complet;
+
 CREATE VIEW
     v_gains_complet AS
 SELECT
@@ -70,3 +82,18 @@ FROM
 GROUP BY
     op.id,
     op.libelle;
+
+DROP VIEW IF EXISTS v_solde;
+
+
+
+CREATE VIEW v_solde AS
+SELECT
+    u.id AS id_utilisateur,
+    u.numero,
+    u.id_role,
+    COALESCE(SUM(ou.montant), 0) AS solde
+FROM utilisateur u
+LEFT JOIN operation_utilisateur ou
+    ON u.id = ou.id_utilisateur
+GROUP BY u.id, u.numero, u.id_role;
