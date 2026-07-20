@@ -11,7 +11,8 @@ DROP TABLE IF EXISTS prefix;
 CREATE TABLE
     utilisateur (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        numero VARCHAR(10) NOT NULL
+        numero VARCHAR(10) NOT NULL,
+        id_role INTEGER NOT NULL DEFAULT 2
     );
 
 CREATE TABLE
@@ -74,6 +75,8 @@ GROUP BY
 
 DROP VIEW IF EXISTS v_solde;
 
+
+
 CREATE VIEW v_solde AS
 SELECT
     u.id AS id_utilisateur,
@@ -84,18 +87,3 @@ FROM utilisateur u
 LEFT JOIN operation_utilisateur ou
     ON u.id = ou.id_utilisateur
 GROUP BY u.id, u.numero, u.id_role;
-
-CREATE VIEW
-    v_gains_complet AS
-SELECT
-    op.id,
-    op.libelle AS operation,
-    SUM(ou.montant) AS total_montant,
-    SUM(f.frais) AS total_frais
-FROM
-    operation_utilisateur ou
-    JOIN operation op ON ou.id_operation = op.id
-    LEFT JOIN frais f ON ou.id_frais = f.id
-GROUP BY
-    op.id,
-    op.libelle;

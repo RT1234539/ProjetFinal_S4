@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class PrefixModel extends Model
 {
-    protected $table = 'prefixes'; // Adaptez le nom de votre table
+    protected $table = 'prefix'; // Adaptez le nom de votre table
     protected $primaryKey = 'id';
     protected $allowedFields = ['prefix', 'nom'];
     protected $returnType = 'object'; // Pour utiliser ->id, ->code, ->operateur dans la vue
