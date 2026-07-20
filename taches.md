@@ -11,7 +11,7 @@
 * [ ] Créer la page de gestion des préfixes.
 * [ ] Ajouter un formulaire :
 
-  * [ ] Champ *Préfixe* (3 chiffres).
+* [ ] Champ *Préfixe* (3 chiffres).
 * [ ] Afficher la liste des préfixes existants.
 
 ### Métier

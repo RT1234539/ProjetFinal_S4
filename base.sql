@@ -17,7 +17,8 @@ CREATE TABLE
 CREATE TABLE
     prefix (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        prefix VARCHAR(3) NOT NULL
+        prefix VARCHAR(3) NOT NULL,
+        nom VARCHAR(50) NOT NULL
     );
 
 CREATE TABLE
@@ -55,6 +56,34 @@ CREATE TABLE
         FOREIGN KEY (id_utilisateur) REFERENCES utilisateur (id),
         FOREIGN KEY (id_frais) REFERENCES frais (id)
     );
+
+CREATE VIEW
+    v_gains_complet AS
+SELECT
+    op.id,
+    op.libelle AS operation,
+    SUM(ou.montant) AS total_montant,
+    SUM(f.frais) AS total_frais
+FROM
+    operation_utilisateur ou
+    JOIN operation op ON ou.id_operation = op.id
+    LEFT JOIN frais f ON ou.id_frais = f.id
+GROUP BY
+    op.id,
+    op.libelle;
+
+DROP VIEW IF EXISTS v_solde;
+
+CREATE VIEW v_solde AS
+SELECT
+    u.id AS id_utilisateur,
+    u.numero,
+    u.id_role,
+    COALESCE(SUM(ou.montant), 0) AS solde
+FROM utilisateur u
+LEFT JOIN operation_utilisateur ou
+    ON u.id = ou.id_utilisateur
+GROUP BY u.id, u.numero, u.id_role;
 
 CREATE VIEW
     v_gains_complet AS

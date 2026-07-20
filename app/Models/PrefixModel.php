@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class PrefixModel extends Model
 {
-    protected $table            = 'prefix';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
-    protected $allowedFields    = ['prefix'];
+    protected $table = 'prefixes'; // Adaptez le nom de votre table
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['prefix', 'nom'];
+    protected $returnType = 'object'; // Pour utiliser ->id, ->code, ->operateur dans la vue
 
-    protected $validationRules = [
-        'prefix' => 'required|max_length[3]',
-    ];
+    public function existe($prefix)
+    {
+        return $this->where('prefix', $prefix)->first() !== null;
+    }
 }

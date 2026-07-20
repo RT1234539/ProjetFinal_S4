@@ -62,7 +62,12 @@ class UtilisateurController extends BaseController
             ];
 
             return view("login", $data);
-            // throw $e;
         }
+    }
+
+    public function listeClients()
+    {
+        $data['clients'] = $this->utilisateurModel->listerClientsAvecDetails();
+        return view('operateur/clients_list', $data);
     }
 }
