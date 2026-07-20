@@ -408,12 +408,12 @@
                                             </td>
                                             <td class="px-lg py-md text-right">
                                                 <div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
-                                                    <button class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors" title="Modifier">
+                                                    <a href="<?= base_url('frais/edit/' . $item['id']) ?>" class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors" title="Modifier">
                                                         <span class="material-symbols-outlined text-[20px]">edit</span>
-                                                    </button>
-                                                    <button class="p-2 text-error hover:bg-error/10 rounded-full transition-colors" title="Supprimer">
+                                                    </a>
+                                                    <a href="<?= base_url('frais/delete/' . $item['id']) ?>" class="p-2 text-error hover:bg-error/10 rounded-full transition-colors" title="Supprimer" onclick="return confirm('Supprimer ce barème ?')">
                                                         <span class="material-symbols-outlined text-[20px]">delete</span>
-                                                    </button>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>

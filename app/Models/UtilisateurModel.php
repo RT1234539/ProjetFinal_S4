@@ -13,14 +13,18 @@ class UtilisateurModel extends Model
     protected $allowedFields    = ['numero', 'id_role'];
 
 
-    public function listerClientsAvecDetails(): array
+    public function listerClientsAvecDetails(string $search = ''): array
     {
-        return $this->db->table('v_solde vs')
+        $builder = $this->db->table('v_solde vs')
             ->select('vs.*, COALESCE(c.nombre_operations, 0) AS nombre_operations')
             ->join('(SELECT id_utilisateur, COUNT(*) AS nombre_operations FROM operation_utilisateur GROUP BY id_utilisateur) c', 'c.id_utilisateur = vs.id_utilisateur', 'left')
-            ->where('vs.id_role', 2)
-            ->get()
-            ->getResultArray();
+            ->where('vs.id_role', 2);
+
+        if (!empty($search)) {
+            $builder->like('vs.numero', $search);
+        }
+
+        return $builder->get()->getResultArray();
     }
 
 

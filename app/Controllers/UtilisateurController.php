@@ -86,7 +86,9 @@ class UtilisateurController extends BaseController
 
     public function listeClients()
     {
-        $data['clients'] = $this->utilisateurModel->listerClientsAvecDetails();
+        $search = $this->request->getGet('search') ?? '';
+        $data['clients'] = $this->utilisateurModel->listerClientsAvecDetails($search);
+        $data['search'] = $search;
         return view('operateur/clients_list', $data);
     }
 }
