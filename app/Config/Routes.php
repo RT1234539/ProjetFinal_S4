@@ -5,7 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+// $routes->get('/', 'Home::index');
 
 $routes->group('frais', function ($routes) {
     $routes->get('ajouter', 'FraisController::ajouter');
@@ -13,3 +13,6 @@ $routes->group('frais', function ($routes) {
 });
 
 $routes->get('gains', 'GainsController::listeGains');
+
+$routes->get('/', 'UtilisateurController::loginForm');
+$routes->post('login', 'UtilisateurController::login');

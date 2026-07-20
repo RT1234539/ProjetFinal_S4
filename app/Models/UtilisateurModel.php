@@ -12,7 +12,4 @@ class UtilisateurModel extends Model
     protected $returnType       = 'array';
     protected $allowedFields    = ['numero'];
 
-    protected $validationRules = [
-        'numero' => 'required|max_length[10]',
-    ];
 }
