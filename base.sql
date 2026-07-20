@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS role;
+
 DROP TABLE IF EXISTS operation_utilisateur;
 
 DROP TABLE IF EXISTS frais;
@@ -9,9 +11,17 @@ DROP TABLE IF EXISTS utilisateur;
 DROP TABLE IF EXISTS prefix;
 
 CREATE TABLE
+    role (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        role VARCHAR(20) NOT NULL
+    );
+
+CREATE TABLE
     utilisateur (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        numero VARCHAR(10) NOT NULL
+        numero VARCHAR(10) NOT NULL,
+        id_role INTEGER NOT NULL,
+        FOREIGN KEY (id_role) REFERENCES role (id)
     );
 
 CREATE TABLE
@@ -56,6 +66,8 @@ CREATE TABLE
         FOREIGN KEY (id_utilisateur) REFERENCES utilisateur (id),
         FOREIGN KEY (id_frais) REFERENCES frais (id)
     );
+
+DROP VIEW IF EXISTS v_gains_complet;
 
 CREATE VIEW
     v_gains_complet AS
