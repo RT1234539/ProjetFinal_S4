@@ -36,3 +36,5 @@ $routes->group('clients', function ($routes) {
     $routes->post('transfert', 'OperationUtilisateurController::faireUnTransfert');
     $routes->get('historique', 'OperationUtilisateurController::historique');
 });
+
+
