@@ -91,7 +91,7 @@
                         "headline-lg-mobile": ["Inter"],
                         "label-md": ["Inter"]
                     },
-                    "fontSize": {
+                    "fontSize": { 
                         "headline-md": ["28px", {
                             "lineHeight": "1.3",
                             "letterSpacing": "-0.01em",
