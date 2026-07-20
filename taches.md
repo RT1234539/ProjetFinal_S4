@@ -286,3 +286,98 @@
 * [ ] operation_utilisateur
 * [ ] frais
 * [ ] v_solde (Vue SQL)
+
+
+
+
+
+Version 2:
+    creer table operatuer_externe(id,nom,commission_pct,id_autre operateur) dediee autre operateur
+    creer table autre_operateur(id,prefix,nom)
+
+
+
+    -CRUD autre operateur
+        aff:
+            list
+            inserer
+            updater
+            suprimer
+        
+
+        metier:
+            -verifier si le prefix n exist pas encore
+            -prefix a 3 chiffre
+            -inserer ou updater
+            -spprimer
+            -etc
+        database:
+        operateur_externe
+        autre operateur
+
+    -transfert_externes
+        aff:
+            -select choix de autre operateur
+            -input numero avec le prefixe de autre operateur
+        
+
+        metier:
+            -verifier si autre operateur le prefix
+            -calculer le montant a transefer(montant initial + frais + % commission)
+            -
+
+        database:
+            -operation_utilisateur
+            -operation
+            -operatuer_externe
+
+
+    -situation gain(ameliorer)
+        -aff:
+            gain operateur interne
+            autre operateur(gain)
+        
+        -metier:
+            grouper les gain interne et autre
+        
+        -database:
+            operation_utilisateur
+            operation
+            autre operation 
+            operation externe 
+        
+    -situation montant envoyer:
+        aff:
+            montant total par operateur (transfert sortant)
+
+
+cote client:
+
+        Transfert:
+            aff:
+                choix option de transfert inclure ou pas le frais de retrait
+                input montant
+                input numero
+            metier
+                -verifier si autre operateur ou interne le numero 
+                si interne: 
+                            -verifier si inclus ou pas
+                            -sommer le montant + frais + frais de retrait de destinataire
+                            -verifier si le solde insuffisant
+                si non:desactiver et faire le transfert normal
+
+            database:
+                operateur_utilisateur
+                operation 
+                type operation
+                etc
+        Transfert Multiple:
+            aff:
+                choix de plusieurs ou multiplr numero interne
+                input montant
+
+            metier:
+                verifier tous les numero si interne
+                calculer la montant moyenne pour chaque numero
+                inserer dans chaque numero le montant moyenne
+
