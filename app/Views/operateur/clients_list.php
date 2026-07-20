@@ -147,7 +147,7 @@
 <span class="material-symbols-outlined mr-sm" style="font-variation-settings: 'FILL' 1;">group</span>
 <span class="font-label-md text-label-md">Comptes clients</span>
 </a>
-<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
+<!-- <a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
 <span class="material-symbols-outlined mr-sm">calculate</span>
 <span class="font-label-md text-label-md">Simulation</span>
 </a>
@@ -158,13 +158,13 @@
 <a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
 <span class="material-symbols-outlined mr-sm">settings</span>
 <span class="font-label-md text-label-md">Paramètres</span>
-</a>
+</a> -->
 </nav>
 <div class="p-lg border-t border-outline-variant">
 <div class="flex items-center gap-sm">
 <img class="w-10 h-10 rounded-full border-2 border-primary-fixed" data-alt="A professional headshot of a financial administrator, looking confident and approachable, wearing a modern business casual outfit. The background is a blurred office environment with soft blue and white tones that match the corporate mobile money interface style. High quality lighting, sharp focus on the person, and minimalist aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD58Ilhh6mvgds-GLTF5uRZPyskgmx1UIFCqRgPbTQ4twwCmpvGte5r6EV_XtiZHDSaSwKHcbc3ihX8C3LnAeYOulSb5fQM_YPawpNoArWfOYWXcM3ux1kOTMfrYP0A3R9umIa-M7BOjBuW_0-PgxHiS59AMkFrwOHBKWvTh27NuEJftp4IAu_Isu2AEhkK1zN895E3WFrfnHbGu2oy9sbDsHahOLUp8cHtANR5PayaiCAZ2jxd-Wm1tryh8N90PbnzVREMwxAd8tmq"/>
 <div class="overflow-hidden">
-<p class="font-label-md text-label-md truncate">Jean Dupont</p>
+<p class="font-label-md text-label-md truncate">Jean </p>
 <p class="font-label-sm text-label-sm text-secondary truncate">Super Administrateur</p>
 </div>
 </div>
@@ -180,7 +180,9 @@
 </button>
 <div class="relative w-64 md:w-96">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
-<input class="w-full bg-surface-container-low border-none rounded-xl pl-10 py-2 focus:ring-2 focus:ring-primary text-body-sm" placeholder="Rechercher un compte..." type="text"/>
+<form action="<?= base_url('clients') ?>" method="get" class="w-full">
+<input class="w-full bg-surface-container-low border-none rounded-xl pl-10 py-2 focus:ring-2 focus:ring-primary text-body-sm" placeholder="Rechercher par numéro..." type="text" name="search" value="<?= esc($search ?? '') ?>" />
+</form>
 </div>
 </div>
 <div class="flex items-center gap-md">
@@ -278,7 +280,6 @@ $clientsActifs = count(array_filter($clientsData, fn($client) => (float) ($clien
 <th class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap">Numéro</th>
 <th class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap">Solde actuel</th>
 <th class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap">Nombre d'opérations</th>
-<th class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap">Statut</th>
 <th class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap text-right">Actions</th>
 </tr>
 </thead>
@@ -291,11 +292,7 @@ $clientsActifs = count(array_filter($clientsData, fn($client) => (float) ($clien
             <td class="px-lg py-md font-label-md text-label-md text-primary"><?= esc($client['numero'] ?? '') ?></td>
             <td class="px-lg py-md font-label-md text-label-md text-on-surface"><?= number_format($solde, 0, ',', ' ') ?> Ar</td>
             <td class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap"><?= esc($client['nombre_operations'] ?? 0) ?></td>
-            <td class="px-lg py-md">
-                <span class="px-sm py-1 rounded-full text-label-sm font-semibold <?= $statut === 'Actif' ? 'bg-green-100 text-green-700' : 'bg-error-container text-on-error-container' ?>">
-                    <?= esc($statut) ?>
-                </span>
-            </td>
+            
             <td class="px-lg py-md text-right">
                 <button class="p-xs text-secondary hover:text-primary transition-colors" type="button">
                     <span class="material-symbols-outlined">more_vert</span>
@@ -314,7 +311,7 @@ $clientsActifs = count(array_filter($clientsData, fn($client) => (float) ($clien
 </table>
 </div>
 <!-- Pagination -->
-<div class="p-lg border-t border-outline-variant/30 flex items-center justify-between">
+<!-- <div class="p-lg border-t border-outline-variant/30 flex items-center justify-between">
 <button class="flex items-center gap-xs px-md py-sm rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled="">
 <span class="material-symbols-outlined text-[18px]">chevron_left</span>
                         Précédent
@@ -330,7 +327,7 @@ $clientsActifs = count(array_filter($clientsData, fn($client) => (float) ($clien
                         Suivant
                         <span class="material-symbols-outlined text-[18px]">chevron_right</span>
 </button>
-</div>
+</div> -->
 </div>
 </div>
 <!-- Footer -->
@@ -338,8 +335,8 @@ $clientsActifs = count(array_filter($clientsData, fn($client) => (float) ($clien
 <p class="font-label-sm text-label-sm text-secondary">© 2024 Mobile Money - Tous droits réservés</p>
 <div class="flex gap-lg">
 <span class="font-label-sm text-label-sm text-on-surface-variant">Version 2.1.0</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Projet Admin</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Janvier 2024</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Projet Cash Point</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cash</span>
 </div>
 </footer>
 </main>

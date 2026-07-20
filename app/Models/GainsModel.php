@@ -15,13 +15,14 @@ class GainsModel extends Model
 
     public function getGainsParOperation()
     {
-        return $this->findAll();
+        return $this->where('operation !=', 'depot')->findAll();
     }
 
     public function getGainTotal()
     {
         $builder = $this->db->table($this->table);
         $builder->selectSum('total_frais', 'gain_total');
+        $builder->where('operation !=', 'depot');
 
         $query = $builder->get();
         $row   = $query->getRow();

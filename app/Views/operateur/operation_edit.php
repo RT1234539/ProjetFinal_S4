@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Préfixes - Admin Mobile Money</title>
+<title>Modifier Type d'opération - Admin Mobile Money</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -112,7 +112,6 @@
 </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex">
-<!-- SideNavBar -->
 <aside class="hidden lg:flex flex-col h-screen border-r border-outline-variant bg-white w-72 fixed left-0 top-0 z-50">
 <div class="p-lg flex items-center gap-sm">
 <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
@@ -124,150 +123,82 @@
 </div>
 </div>
 <nav class="flex-1 mt-md space-y-1">
-<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="<?= base_url('clients') ?>">
+<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1" href="<?= base_url('clients') ?>">
 <span class="material-symbols-outlined mr-sm">group</span>
 <span class="font-label-md text-label-md">Comptes clients</span>
 </a>
-<a class="flex items-center px-lg py-sm bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="<?= base_url('prefix') ?>">
-<span class="material-symbols-outlined mr-sm" style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
+<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1" href="<?= base_url('prefix') ?>">
+<span class="material-symbols-outlined mr-sm">phone_iphone</span>
 <span class="font-label-md text-label-md">Préfixes</span>
 </a>
-<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="<?= base_url('frais/ajouter') ?>">
+<a class="flex items-center px-lg py-sm bg-primary-container text-on-primary-container rounded-lg mx-2 my-1" href="<?= base_url('operations') ?>">
+<span class="material-symbols-outlined mr-sm" style="font-variation-settings: 'FILL' 1;">category</span>
+<span class="font-label-md text-label-md">Types d'opérations</span>
+</a>
+<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1" href="<?= base_url('frais/ajouter') ?>">
 <span class="material-symbols-outlined mr-sm">payments</span>
 <span class="font-label-md text-label-md">Barèmes</span>
 </a>
-<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="<?= base_url('gains') ?>">
+<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1" href="<?= base_url('gains') ?>">
 <span class="material-symbols-outlined mr-sm">leaderboard</span>
 <span class="font-label-md text-label-md">Gains</span>
 </a>
 </nav>
 </aside>
-<!-- Main Content -->
 <main class="flex-1 lg:ml-72 flex flex-col min-h-screen">
-<!-- TopNavBar -->
 <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
 <div class="flex items-center gap-lg">
 <button class="lg:hidden p-xs rounded-full hover:bg-surface-container">
 <span class="material-symbols-outlined">menu</span>
 </button>
-<h2 class="font-headline-md text-headline-md text-on-surface">Préfixes</h2>
-</div>
-<div class="flex items-center gap-md">
-<button class="p-sm rounded-full hover:bg-surface-container text-on-surface-variant relative">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
-</button>
+<h2 class="font-headline-md text-headline-md text-on-surface">Modifier Type d'opération</h2>
 </div>
 </header>
-<div class="flex-1 p-gutter max-w-[1600px] w-full mx-auto">
-<!-- Header Actions -->
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
-<div>
-<h2 class="font-headline-md text-headline-md text-on-surface">Gestion des Préfixes</h2>
-<p class="font-body-sm text-body-sm text-secondary">Gérez les préfixes des opérateurs mobile money.</p>
-</div>
-<a href="<?= base_url('prefix/form') ?>" class="flex items-center gap-xs px-md py-sm bg-primary text-on-primary font-label-md rounded-xl hover:shadow-lg transition-all active:scale-95">
-<span class="material-symbols-outlined text-[20px]">add</span>
-    Ajouter un préfixe
+<div class="flex-1 p-gutter max-w-[800px] w-full mx-auto">
+<div class="flex items-center gap-sm mb-xl">
+<a href="<?= base_url('operations') ?>" class="flex items-center gap-xs text-primary font-label-md hover:underline">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+    Retour à la liste
 </a>
 </div>
-<!-- Flash Messages -->
-<?php if (session()->getFlashdata('success')): ?>
-<div class="mb-xl p-md bg-green-100 text-green-800 rounded-xl flex items-center gap-sm">
-<span class="material-symbols-outlined">check_circle</span>
-<?= session()->getFlashdata('success') ?>
-</div>
-<?php endif; ?>
 <?php if (session()->getFlashdata('error')): ?>
 <div class="mb-xl p-md bg-red-100 text-red-800 rounded-xl flex items-center gap-sm">
 <span class="material-symbols-outlined">error</span>
 <?= session()->getFlashdata('error') ?>
 </div>
 <?php endif; ?>
-<!-- Table Card -->
-<div class="bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden flex flex-col">
-<div class="p-lg border-b border-outline-variant/30 flex items-center justify-between">
-<p class="text-body-sm text-secondary">
-    <?php if (! empty($prefixes) && is_array($prefixes)): ?>
-        <?= count($prefixes) ?> préfixe(s) enregistré(s)
-    <?php else: ?>
-        Aucun préfixe
-    <?php endif; ?>
-</p>
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+<div class="p-lg border-b border-outline-variant/30">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">edit</span>
 </div>
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead class="bg-surface-container-low border-b border-outline-variant/30">
-<tr>
-<th class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap">#</th>
-<th class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap">Préfixe</th>
-<th class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap">Opérateur</th>
-<th class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap text-right">Actions</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-outline-variant/20">
-<?php if (! empty($prefixes) && is_array($prefixes)): ?>
-    <?php foreach ($prefixes as $prefix): ?>
-        <tr class="hover:bg-primary/5 transition-colors group">
-            <td class="px-lg py-md font-label-md text-label-md text-secondary"><?= esc($prefix->id) ?></td>
-            <td class="px-lg py-md">
-                <span class="inline-flex items-center gap-xs px-sm py-1 bg-primary/10 text-primary rounded-full font-label-md">
-                    <span class="material-symbols-outlined text-[16px]">dialpad</span>
-                    <?= esc($prefix->prefix) ?>
-                </span>
-            </td>
-            <td class="px-lg py-md font-label-md text-label-md text-on-surface"><?= esc($prefix->nom) ?></td>
-            <td class="px-lg py-md text-right">
-                <div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="<?= base_url('prefix/edit/' . $prefix->id) ?>" class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors" title="Modifier">
-                        <span class="material-symbols-outlined text-[20px]">edit</span>
-                    </a>
-                    <a href="<?= base_url('prefix/delete/' . $prefix->id) ?>" class="p-2 text-error hover:bg-error/10 rounded-full transition-colors" title="Supprimer" onclick="return confirm('Supprimer ce préfixe ?')">
-                        <span class="material-symbols-outlined text-[20px]">delete</span>
-                    </a>
-                </div>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-<?php else: ?>
-    <tr>
-        <td colspan="4" class="px-lg py-md text-center text-secondary">
-            Aucun préfixe trouvé.
-        </td>
-    </tr>
-<?php endif; ?>
-</tbody>
-</table>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Modifier le type</h3>
+<p class="font-body-sm text-body-sm text-secondary">Modifiez le libellé du type #<?= esc($operation['id']) ?></p>
 </div>
 </div>
-<!-- Footer -->
-<footer class="flex justify-between items-center px-gutter w-full mt-auto py-4 bg-surface-container-low border-t border-outline-variant">
-<p class="font-label-sm text-label-sm text-secondary">© 2024 Mobile Money - Tous droits réservés</p>
-<div class="flex gap-lg">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Version 2.1.0</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Projet Admin</span>
 </div>
-</footer>
+<form action="<?= base_url('operations/update/' . $operation['id']) ?>" method="post" class="p-lg space-y-lg">
+<?= csrf_field() ?>
+<div>
+<label for="libelle" class="block font-label-md text-label-md text-on-surface-variant mb-sm">Libellé</label>
+<input type="text" id="libelle" name="libelle" maxlength="10" required
+       value="<?= esc($operation['libelle']) ?>"
+       class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-body-md focus:ring-2 focus:ring-primary focus:outline-none transition-all">
+</div>
+<div class="flex items-center gap-md pt-md">
+<button type="submit" class="flex items-center gap-xs px-lg py-sm bg-primary text-on-primary font-label-md rounded-xl hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">save</span>
+    Mettre à jour
+</button>
+<a href="<?= base_url('operations') ?>" class="flex items-center gap-xs px-lg py-sm bg-surface-container-highest text-on-surface-variant font-label-md rounded-xl hover:bg-outline-variant transition-colors">
+    Annuler
+</a>
+</div>
+</form>
+</div>
 </div>
 </main>
-<!-- Mobile Navigation (Bottom Bar) -->
-<nav class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface border-t border-outline-variant/30 z-50 flex items-center justify-around px-md">
-<a href="<?= base_url('clients') ?>" class="flex flex-col items-center gap-1 text-secondary">
-<span class="material-symbols-outlined">group</span>
-<span class="text-[10px] font-label-sm">Clients</span>
-</a>
-<a href="<?= base_url('prefix') ?>" class="flex flex-col items-center gap-1 text-primary">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
-<span class="text-[10px] font-label-sm font-bold">Préfixes</span>
-</a>
-<a href="<?= base_url('frais/ajouter') ?>" class="flex flex-col items-center gap-1 text-secondary">
-<span class="material-symbols-outlined">payments</span>
-<span class="text-[10px] font-label-sm">Barèmes</span>
-</a>
-<a href="<?= base_url('gains') ?>" class="flex flex-col items-center gap-1 text-secondary">
-<span class="material-symbols-outlined">leaderboard</span>
-<span class="text-[10px] font-label-sm">Gains</span>
-</a>
-</nav>
 </body>
 </html>

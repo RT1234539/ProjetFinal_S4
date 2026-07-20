@@ -27,20 +27,19 @@ class PrefixController extends BaseController
 
     public function save()
     {
-        // Correction : utilisation de getPost() correctement
         $prefix = trim($this->request->getPost('prefix'));
         $nom = trim($this->request->getPost('nom'));
         
         if (empty($prefix) || empty($nom)) {
-            throw new InvalidArgumentException('Le préfixe et le nom sont obligatoires.');
+            return redirect()->back()->with('error', 'Le préfixe et le nom sont obligatoires.');
         }
 
         if (!preg_match('/^\d{3}$/', $prefix)) {
-            throw new InvalidArgumentException('Le préfixe doit contenir exactement 3 chiffres.');
+            return redirect()->back()->with('error', 'Le préfixe doit contenir exactement 3 chiffres.');
         }
 
         if ($this->prefixModel->existe($prefix)) {
-            throw new InvalidArgumentException('Ce préfixe existe déjà.');
+            return redirect()->back()->with('error', 'Ce préfixe existe déjà.');
         }
 
         $this->prefixModel->insert([
@@ -48,8 +47,56 @@ class PrefixController extends BaseController
             'nom' => $nom
         ]);
 
-        // Redirection vers la liste des préfixes ou vers le formulaire avec message de succès
         session()->setFlashdata('success', 'Préfixe ajouté avec succès !');
+        return redirect()->to('/prefix');
+    }
+
+    public function edit($id)
+    {
+        $prefix = $this->prefixModel->find($id);
+        if (!$prefix) {
+            return redirect()->to('/prefix')->with('error', 'Préfixe introuvable.');
+        }
+        $data['prefix'] = $prefix;
+        return view('operateur/prefix_edit', $data);
+    }
+
+    public function update($id)
+    {
+        $prefix = $this->prefixModel->find($id);
+        if (!$prefix) {
+            return redirect()->to('/prefix')->with('error', 'Préfixe introuvable.');
+        }
+
+        $nouveauPrefix = trim($this->request->getPost('prefix'));
+        $nom = trim($this->request->getPost('nom'));
+
+        if (empty($nouveauPrefix) || empty($nom)) {
+            return redirect()->back()->with('error', 'Le préfixe et le nom sont obligatoires.');
+        }
+
+        if (!preg_match('/^\d{3}$/', $nouveauPrefix)) {
+            return redirect()->back()->with('error', 'Le préfixe doit contenir exactement 3 chiffres.');
+        }
+
+        $exist = $this->prefixModel->where('prefix', $nouveauPrefix)->first();
+        if ($exist && $exist->id != $id) {
+            return redirect()->back()->with('error', 'Ce préfixe existe déjà.');
+        }
+
+        $this->prefixModel->update($id, [
+            'prefix' => $nouveauPrefix,
+            'nom' => $nom
+        ]);
+
+        session()->setFlashdata('success', 'Préfixe mis à jour avec succès !');
+        return redirect()->to('/prefix');
+    }
+
+    public function delete($id)
+    {
+        $this->prefixModel->delete($id);
+        session()->setFlashdata('success', 'Préfixe supprimé avec succès !');
         return redirect()->to('/prefix');
     }
 }
