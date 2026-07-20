@@ -15,16 +15,18 @@ class FraisController extends BaseController
         $this->fraisModel = new FraisModel();
     }
 
-    public function ajouter()
+    public function ajouterForm()
     {
+        $liste = $this->fraisModel
+            ->getFraisComplet();
         $operationModel = new OperationModel();
-        $liste = $this->fraisModel->findAll();
+
         $data = [
-            'operations' => $operationModel->findAll(),
             'liste' => $liste,
+            'operations' => $operationModel->findAll(),
         ];
 
-        return view("operateur/ajouterFrais", $data);
+        return view('operateur/addFrais', $data);
     }
 
     public function insert()
@@ -36,12 +38,12 @@ class FraisController extends BaseController
             $frais = $this->request->getPost("frais");
             $operationType = $this->request->getPost("operation");
 
-            if ($montantMin < 0 || $montantMax < 0 || $frais < 0) {
-                throw new Exception("Les valeurs tapés doivent toujours être positifs");
-            }
-
             if ($montantMin === '' || $montantMax === '' || $frais === '') {
                 throw new Exception("Tous les champs sont obligatoires.");
+            }
+
+            if ($montantMin < 0 || $montantMax < 0 || $frais < 0) {
+                throw new Exception("Les valeurs tapés doivent toujours être positifs");
             }
 
             if ($montantMin > $montantMax) {
@@ -61,15 +63,15 @@ class FraisController extends BaseController
 
             $this->fraisModel->insert($data);
 
-            return view("operateur/ajouterFrais", $data);
+            return redirect()->to(base_url('frais/ajouter'))->with('success', 'Frais ajouté avec succès.');
         } catch (Exception $e) {
-
             $data = [
                 'status' => 'error',
                 'message' => $e->getMessage(),
                 'operations' => $operationModel->findAll(),
             ];
-            return view("operateur/ajouterFrais", $data);
+            return view("operateur/addFrais", $data);
+            // throw $e;
         }
     }
 }

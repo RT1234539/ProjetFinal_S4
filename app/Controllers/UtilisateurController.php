@@ -54,14 +54,15 @@ class UtilisateurController extends BaseController
             }
 
             return view("welcome_message");
+
         } catch (Exception $e) {
             $data = [
                 'status' => 'error',
                 'message' => $e->getMessage(),
             ];
 
-            return view("login", $data);
-            // throw $e;
+            // return view("login", $data);
+            throw $e;
         }
     }
 }
