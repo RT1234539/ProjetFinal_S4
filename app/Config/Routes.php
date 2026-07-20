@@ -7,10 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-$routes->group('auth', function ($routes) {
-    $routes->get('login', 'UtilisateurController::loginForm');
-    $routes->get('register', 'UtilisateurController::registerForm');
-
-    $routes->post('login', 'UtilisateurController::login');
-    $routes->post('register', 'UtilisateurController::register');
+$routes->group('frais', function ($routes) {
+    $routes->get('ajouter', 'FraisController::ajouter');
+    $routes->post('ajouter', 'FraisController::insert');
 });

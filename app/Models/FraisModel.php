@@ -11,11 +11,5 @@ class FraisModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $allowedFields    = ['montant1', 'montant2', 'frais', 'id_operation'];
-
-    protected $validationRules = [
-        'montant1'     => 'required|numeric',
-        'montant2'     => 'required|numeric',
-        'frais'        => 'required|numeric',
-        'id_operation' => 'required|integer',
-    ];
+    
 }
