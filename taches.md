@@ -1,383 +1,470 @@
-# To-Do List – Projet Mobile Money
+# Projet Mobile Money — Liste des tâches
+
+> **Légende**
+>
+> - [ ] À faire
+> - [x] Terminé
 
 ---
 
-#  Côté Opérateur
+# Opérateur
 
-##  Gestion des préfixes
+## 1. Gestion des préfixes
 
-### Affichage
+### Interface
 
-* [ ] Créer la page de gestion des préfixes.
-* [ ] Ajouter un formulaire :
-
-* [ ] Champ *Préfixe* (3 chiffres).
-* [ ] Afficher la liste des préfixes existants.
+- [ ] Créer la page de gestion des préfixes
+- [ ] Ajouter un formulaire
+  - [ ] Préfixe (3 chiffres)
+- [ ] Afficher la liste des préfixes existants
 
 ### Métier
 
-* [ ] Vérifier que le préfixe n'existe pas déjà.
-* [ ] Vérifier que le préfixe contient exactement *3 chiffres*.
-* [ ] Insérer le préfixe.
+- [ ] Vérifier que le préfixe n'existe pas déjà
+- [ ] Vérifier que le préfixe contient exactement **3 chiffres**
+- [ ] Enregistrer le préfixe
 
 ### Base de données
 
-* [ ] Créer la table *prefix*.
+- [ ] Créer la table `prefix`
 
 ---
 
-##  Gestion des frais
+## 2. Gestion des frais
 
-### Affichage
+### Interface
 
-* [ ] Créer le formulaire.
-* [ ] Ajouter les champs :
-
-  * [ ] Montant minimum.
-  * [ ] Montant maximum.
-  * [ ] Frais.
-  * [ ] Type d'opération.
-* [ ] Afficher la liste des frais.
+- [ ] Créer le formulaire de gestion des frais
+- [ ] Ajouter les champs suivants
+  - [ ] Montant minimum
+  - [ ] Montant maximum
+  - [ ] Frais
+  - [ ] Type d'opération
+- [ ] Afficher la liste des frais
 
 ### Métier
 
-* [ ] Vérifier que les montants et les frais sont toujours positifs.
-* [ ] Enregistrer les frais.
+- [ ] Vérifier que les montants et les frais sont positifs
+- [ ] Enregistrer les frais
 
 ### Base de données
 
-* [ ] Créer la table *frais*.
+- [ ] Créer la table `frais`
 
 ---
 
-## Situation des gains
+## 3. Situation des gains
 
-### Affichage
+### Interface
 
-* [ ] Afficher :
+Afficher :
 
-  * [ ] Total des montants par opération.
-  * [ ] Total des frais par opération.
-  * [ ] Date.
-  * [ ] Gain total.
+- [ ] Total des montants par opération
+- [ ] Total des frais par opération
+- [ ] Date
+- [ ] Gain total
 
 ### Métier
 
-* [ ] Calculer la somme des montants par type d'opération.
-* [ ] Calculer la somme des frais.
-* [ ] Calculer le gain total.
+- [ ] Calculer le total des montants par type d'opération
+- [ ] Calculer le total des frais
+- [ ] Calculer le gain total
 
 ### Base de données
 
-* [ ] Utiliser :
-
-  * [ ] frais
-  * [ ] operation_utilisateur
-  * [ ] operation
+- [ ] `frais`
+- [ ] `operation_utilisateur`
+- [ ] `operation`
 
 ---
 
-##  Liste des clients
+## 4. Liste des clients
 
-### Affichage
+### Interface
 
-* [ ] Afficher :
+Afficher :
 
-  * [ ] Numéro.
-  * [ ] Solde actuel.
-  * [ ] Nombre d'opérations.
+- [ ] Numéro
+- [ ] Solde actuel
+- [ ] Nombre d'opérations
 
 ### Métier
 
-* [ ] Calculer le solde de chaque client.
-* [ ] Lister tous les clients.
-* [ ] Calculer le nombre d'opérations par client.
+- [ ] Calculer le solde de chaque client
+- [ ] Lister tous les clients
+- [ ] Calculer le nombre d'opérations par client
 
 ### Base de données
 
-* [ ] utilisateur
-* [ ] operation_utilisateur
+- [ ] `utilisateur`
+- [ ] `operation_utilisateur`
 
 ---
 
-##  Gestion des opérateurs
+## 5. Détection de l'opérateur
 
 ### Métier
 
-* [ ] Associer automatiquement un numéro à son opérateur selon le préfixe.
-* [ ] Exemple :
+Associer automatiquement un numéro de téléphone à son opérateur.
 
-  * [ ] 032 → Telma
-  * [ ] 033 → Airtel
-  * [ ] 034 → Yas
-  * [ ] 037 → Orange
-  * [ ] 038 → Telma
+| Préfixe | Opérateur |
+|---------:|-----------|
+| 032 | Telma |
+| 033 | Airtel |
+| 034 | Yas |
+| 037 | Orange |
+| 038 | Telma |
 
 ---
 
-##  Type d'opération
+## 6. Types d'opération
 
 ### Base de données
 
-* [ ] Créer la table *type_operation*
+Créer la table `type_operation`
 
-  * [ ] id
-  * [ ] libelle
+| Champ | Description |
+|--------|-------------|
+| id | Clé primaire |
+| libelle | Nom du type d'opération |
 
 ---
 
-#  Côté Client
+# Client
 
-##  Login
+## 1. Connexion
 
-### Affichage
+### Interface
 
-* [ ] Page de connexion sans inscription.
-* [ ] Redirection automatique vers l'accueil après connexion.
-* [ ] Afficher une erreur si le préfixe est invalide.
+- [ ] Créer une page de connexion (sans inscription)
+- [ ] Rediriger automatiquement vers l'accueil après la connexion
+- [ ] Afficher une erreur si le préfixe est invalide
 
 ### Métier
 
-* [ ] Vérifier que le préfixe existe.
-* [ ] Vérifier que le numéro est valide.
-* [ ] Vérifier si le numéro existe déjà.
-* [ ] Si le numéro existe :
+- [ ] Vérifier que le préfixe existe
+- [ ] Vérifier que le numéro est valide
+- [ ] Vérifier si le numéro existe déjà
 
-  * [ ] Connexion automatique.
-* [ ] Sinon :
+Si le numéro existe :
 
-  * [ ] Créer l'utilisateur.
-  * [ ] Enregistrer le numéro.
+- [ ] Connecter automatiquement l'utilisateur
+
+Sinon :
+
+- [ ] Créer l'utilisateur
+- [ ] Enregistrer le numéro
 
 ### Base de données
 
-* [ ] utilisateur(id, numero)
-* [ ] prefix
+- [ ] `utilisateur`
+- [ ] `prefix`
 
 ---
 
-##  Accueil
+## 2. Accueil
 
-### Affichage
+### Interface
 
-* [ ] Afficher le solde actuel.
-* [ ] Ajouter les boutons :
+Afficher :
 
-  * [ ] Dépôt.
-  * [ ] Retrait.
-  * [ ] Transfert.
-  * [ ] Historique.
+- [ ] Solde actuel
+
+Ajouter les boutons :
+
+- [ ] Dépôt
+- [ ] Retrait
+- [ ] Transfert
+- [ ] Historique
 
 ---
 
-##  Voir le solde
+## 3. Consultation du solde
 
-### Affichage
+### Interface
 
-* [ ] Afficher le solde actuel.
+- [ ] Afficher le solde actuel
 
 ### Métier
 
-* [ ] Calculer le solde à partir des opérations.
-* [ ] Utiliser une vue SQL pour récupérer rapidement le solde.
+- [ ] Calculer le solde à partir des opérations
+- [ ] Utiliser la vue SQL `v_solde`
 
 ### Base de données
 
-* [ ] operation_utilisateur
-* [ ] v_solde
+- [ ] `operation_utilisateur`
+- [ ] `v_solde`
 
 ---
 
-##  Dépôt
+## 4. Dépôt
 
-### Affichage
+### Interface
 
-* [ ] Formulaire :
+Formulaire :
 
-  * [ ] Champ montant.
-* [ ] Validation JavaScript.
-* [ ] Afficher une erreur si le montant est négatif ou nul.
+- [ ] Montant
+
+Validation :
+
+- [ ] Validation JavaScript
+- [ ] Refuser les montants nuls ou négatifs
 
 ### Métier
 
-* [ ] Vérifier que le montant est positif.
-* [ ] Insérer une opération avec un montant positif.
+- [ ] Vérifier que le montant est positif
+- [ ] Enregistrer une opération positive
 
 ### Base de données
 
-* [ ] operation_utilisateur
-* [ ] operation
+- [ ] `operation_utilisateur`
+- [ ] `operation`
 
 ---
 
-##  Retrait
+## 5. Retrait
 
-### Affichage
+### Interface
 
-* [ ] Formulaire :
+Formulaire :
 
-  * [ ] Champ montant.
-* [ ] Afficher une erreur en cas de solde insuffisant.
+- [ ] Montant
+
+Erreurs :
+
+- [ ] Solde insuffisant
 
 ### Métier
 
-* [ ] Récupérer les frais applicables.
-* [ ] Calculer :
+- [ ] Récupérer les frais applicables
+- [ ] Calculer :
 
-  * [ ] montant + frais.
-* [ ] Vérifier que le solde est suffisant.
-* [ ] Enregistrer une opération avec un montant négatif.
+```text
+Total = Montant + Frais
+```
+
+- [ ] Vérifier le solde disponible
+- [ ] Enregistrer une opération négative
 
 ### Base de données
 
-* [ ] operation_utilisateur
-* [ ] operation
-* [ ] frais
-* [ ] v_solde
+- [ ] `operation_utilisateur`
+- [ ] `operation`
+- [ ] `frais`
+- [ ] `v_solde`
 
 ---
 
-##  Transfert
+## 6. Transfert
 
-### Affichage
+### Interface
 
-* [ ] Formulaire :
+Formulaire :
 
-  * [ ] Numéro destinataire.
-  * [ ] Montant.
-* [ ] Afficher une erreur si :
+- [ ] Numéro du destinataire
+- [ ] Montant
 
-  * [ ] Solde insuffisant.
-  * [ ] Préfixe invalide.
+Erreurs :
+
+- [ ] Préfixe invalide
+- [ ] Solde insuffisant
 
 ### Métier
 
-* [ ] Vérifier que le préfixe du destinataire existe.
+- [ ] Vérifier le préfixe du destinataire
 
 #### Expéditeur
 
-* [ ] Récupérer les frais.
-* [ ] Calculer montant + frais.
-* [ ] Vérifier le solde.
-* [ ] Enregistrer une opération négative.
+- [ ] Récupérer les frais de transfert
+- [ ] Calculer le montant total
+- [ ] Vérifier le solde
+- [ ] Enregistrer une opération négative
 
 #### Destinataire
 
-* [ ] Vérifier que le destinataire existe.
-* [ ] Créer le destinataire s'il n'existe pas (si souhaité par les règles métier).
-* [ ] Enregistrer une opération positive.
+- [ ] Vérifier si le destinataire existe
+- [ ] Créer le destinataire si nécessaire
+- [ ] Enregistrer une opération positive
 
 ### Base de données
 
-* [ ] operation_utilisateur
-* [ ] operation
-* [ ] frais
-* [ ] prefix
-* [ ] v_solde
+- [ ] `operation_utilisateur`
+- [ ] `operation`
+- [ ] `frais`
+- [ ] `prefix`
+- [ ] `v_solde`
 
 ---
 
-#  Base de données (Récapitulatif)
+# Récapitulatif de la base de données
 
-* [ ] prefix
-* [ ] utilisateur
-* [ ] type_operation
-* [ ] operation
-* [ ] operation_utilisateur
-* [ ] frais
-* [ ] v_solde (Vue SQL)
+- [ ] `prefix`
+- [ ] `utilisateur`
+- [ ] `type_operation`
+- [ ] `operation`
+- [ ] `operation_utilisateur`
+- [ ] `frais`
+- [ ] `v_solde`
 
+---
 
+# Version 2
 
+## 1. Gestion des opérateurs externes
 
+### Base de données
 
-Version 2:
-    creer table operatuer_externe(id,nom,commission_pct,id_autre operateur) dediee autre operateur
-    creer table autre_operateur(id,prefix,nom)
+Créer la table `autre_operateur`
 
+| Champ |
+|--------|
+| id |
+| nom |
+| prefix |
 
+Créer la table `operateur_externe`
 
-    -CRUD autre operateur
-        aff:
-            list
-            inserer
-            updater
-            suprimer
-        
+| Champ |
+|--------|
+| id |
+| nom |
+| commission_pct |
+| id_autre_operateur |
 
-        metier:
-            -verifier si le prefix n exist pas encore
-            -prefix a 3 chiffre
-            -inserer ou updater
-            -spprimer
-            -etc
-        database:
-        operateur_externe
-        autre operateur
+---
 
-    -transfert_externes
-        aff:
-            -select choix de autre operateur
-            -input numero avec le prefixe de autre operateur
-        
+## 2. CRUD des opérateurs externes
 
-        metier:
-            -verifier si autre operateur le prefix
-            -calculer le montant a transefer(montant initial + frais + % commission)
-            -
+### Interface
 
-        database:
-            -operation_utilisateur
-            -operation
-            -operatuer_externe
+- [ ] Liste
+- [ ] Ajouter
+- [ ] Modifier
+- [ ] Supprimer
 
+### Métier
 
-    -situation gain(ameliorer)
-        -aff:
-            gain operateur interne
-            autre operateur(gain)
-        
-        -metier:
-            grouper les gain interne et autre
-        
-        -database:
-            operation_utilisateur
-            operation
-            autre operation 
-            operation externe 
-        
-    -situation montant envoyer:
-        aff:
-            montant total par operateur (transfert sortant)
+- [ ] Vérifier que le préfixe est unique
+- [ ] Vérifier que le préfixe contient exactement 3 chiffres
+- [ ] Ajouter
+- [ ] Modifier
+- [ ] Supprimer
 
+### Base de données
 
-cote client:
+- [ ] `autre_operateur`
+- [ ] `operateur_externe`
 
-        Transfert:
-            aff:
-                choix option de transfert inclure ou pas le frais de retrait
-                input montant
-                input numero
-            metier
-                -verifier si autre operateur ou interne le numero 
-                si interne: 
-                            -verifier si inclus ou pas
-                            -sommer le montant + frais + frais de retrait de destinataire
-                            -verifier si le solde insuffisant
-                si non:desactiver et faire le transfert normal
+---
 
-            database:
-                operateur_utilisateur
-                operation 
-                type operation
-                etc
-        Transfert Multiple:
-            aff:
-                choix de plusieurs ou multiplr numero interne
-                input montant
+## 3. Transfert externe
 
-            metier:
-                verifier tous les numero si interne
-                calculer la montant moyenne pour chaque numero
-                inserer dans chaque numero le montant moyenne
+### Interface
 
+- [ ] Sélectionner un opérateur externe
+- [ ] Saisir le numéro du destinataire
+
+### Métier
+
+- [ ] Vérifier l'opérateur
+- [ ] Vérifier le préfixe
+- [ ] Calculer :
+
+```text
+Total =
+Montant
++ Frais de transfert
++ Commission de l'opérateur
+```
+
+### Base de données
+
+- [ ] `operation_utilisateur`
+- [ ] `operation`
+- [ ] `operateur_externe`
+
+---
+
+## 4. Situation des gains (améliorée)
+
+### Interface
+
+Afficher :
+
+- [ ] Gain des opérateurs internes
+- [ ] Gain des opérateurs externes
+
+### Métier
+
+- [ ] Regrouper les gains internes
+- [ ] Regrouper les gains externes
+
+### Base de données
+
+- [ ] `operation_utilisateur`
+- [ ] `operation`
+- [ ] `autre_operateur`
+- [ ] `operation_externe`
+
+---
+
+## 5. Situation des montants envoyés
+
+### Interface
+
+- [ ] Afficher le montant total envoyé par opérateur
+
+---
+
+# Client — Version 2
+
+## 1. Transfert
+
+### Interface
+
+- [ ] Option pour inclure les frais de retrait du destinataire
+- [ ] Montant
+- [ ] Numéro du destinataire
+
+### Métier
+
+Déterminer si le transfert est interne ou externe.
+
+Si le transfert est **interne** :
+
+- [ ] Calculer :
+
+```text
+Montant
++ Frais de transfert
++ Frais de retrait du destinataire (optionnel)
+```
+
+- [ ] Vérifier le solde disponible
+
+Si le transfert est **externe** :
+
+- [ ] Désactiver cette option
+- [ ] Effectuer un transfert externe classique
+
+---
+
+## 2. Transfert multiple
+
+### Interface
+
+- [ ] Sélectionner plusieurs destinataires internes
+- [ ] Saisir le montant total
+
+### Métier
+
+- [ ] Vérifier tous les destinataires
+- [ ] Vérifier qu'ils sont tous internes
+- [ ] Répartir le montant de manière égale
+- [ ] Enregistrer une opération pour chaque destinataire
+
+### Base de données
+
+- [ ] `operation_utilisateur`
+- [ ] `operation`
+- [ ] `type_operation`
