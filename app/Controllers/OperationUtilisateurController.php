@@ -123,7 +123,6 @@ class OperationUtilisateurController extends BaseController
 
         $prefix = substr($numeroDestinataire, 0, 3);
 
-        // Check if internal prefix
         $isInterne = $this->prefixModel->existe($prefix);
 
         if (!$isInterne) {
