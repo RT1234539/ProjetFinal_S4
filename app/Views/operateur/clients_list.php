@@ -15,10 +15,10 @@
         <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
             <div class="flex items-center gap-lg">
                 <button class="lg:hidden p-xs rounded-full hover:bg-surface-container">
-                    <span class="material-symbols-outlined">menu</span>
+                    <i class="bi-list"></i>
                 </button>
                 <div class="relative w-64 md:w-96">
-                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+                    <i class="bi-search absolute left-3 top-1/2 -translate-y-1/2 text-outline"></i>
                     <form action="<?= base_url('clients') ?>" method="get" class="w-full">
                         <input class="w-full bg-surface-container-low border-none rounded-xl pl-10 py-2 focus:ring-2 focus:ring-primary text-body-sm" placeholder="Rechercher par numéro..." type="text" name="search" value="<?= esc($search ?? '') ?>" />
                     </form>
@@ -26,13 +26,15 @@
             </div>
             <div class="flex items-center gap-md">
                 <button class="p-sm rounded-full hover:bg-surface-container text-on-surface-variant relative">
-                    <span class="material-symbols-outlined">notifications</span>
+                    <i class="bi-bell"></i>
                     <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
                 </button>
                 <div class="h-8 w-[1px] bg-outline-variant mx-xs"></div>
                 <button class="flex items-center gap-xs p-xs rounded-full hover:bg-surface-container">
-                    <img class="w-8 h-8 rounded-full" data-alt="Small profile avatar circle showing a diverse user, part of a clean financial UI design. The image is bright with a clean white background, conveying trust and transparency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGiJKGk-aq1uZMKwTYv82tKM8alfLvEZkepK5gBRIg_ewqvAoAAID_SN0OYzxz2C8bN5y8jZFASLcI5L9Bqp2CcwiqGZFEfouDwr2gx16A16Nay2d4qLZ6Zpu-L8ckfLfZfKRNH6aeoRRjyJN-Dq0Ama61AIeNu1bV_lzXfA3_M06Nq9CHSFj3C2XOipmSO0RZQHiGXDMbAEtTNGWHE2jWThewu4nZvDUyekJK4ae3-TKBWoOp865urzNmTPgst-HHqfAybceKidtW" />
-                    <span class="material-symbols-outlined">expand_more</span>
+                    <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <i class="bi-person text-primary text-[18px]"></i>
+                    </div>
+                    <i class="bi-chevron-down"></i>
                 </button>
             </div>
         </header>
@@ -57,7 +59,7 @@
                     <div class="flex items-center justify-between mb-sm">
                         <span class="text-secondary font-label-sm uppercase tracking-wider">Total Clients</span>
                         <div class="w-8 h-8 bg-primary/10 text-primary rounded-lg flex items-center justify-center">
-                            <span class="material-symbols-outlined text-[18px]">group</span>
+                            <i class="bi-people text-[18px]"></i>
                         </div>
                     </div>
                     <p class="text-headline-sm font-headline-sm"><?= $totalClients ?></p>
@@ -67,7 +69,7 @@
                     <div class="flex items-center justify-between mb-sm">
                         <span class="text-secondary font-label-sm uppercase tracking-wider">Comptes Actifs</span>
                         <div class="w-8 h-8 bg-green-100 text-green-700 rounded-lg flex items-center justify-center">
-                            <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                            <i class="bi-shield-check text-[18px]"></i>
                         </div>
                     </div>
                     <p class="text-headline-sm font-headline-sm"><?= $clientsActifs ?></p>
@@ -77,7 +79,7 @@
                     <div class="flex items-center justify-between mb-sm">
                         <span class="text-secondary font-label-sm uppercase tracking-wider">Solde Total</span>
                         <div class="w-8 h-8 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center">
-                            <span class="material-symbols-outlined text-[18px]">account_balance</span>
+                            <i class="bi-bank text-[18px]"></i>
                         </div>
                     </div>
                     <p class="text-headline-sm font-headline-sm"><?= number_format($soldeTotal, 0, ',', ' ') ?> Ar</p>
@@ -87,7 +89,7 @@
                     <div class="flex items-center justify-between mb-sm">
                         <span class="text-secondary font-label-sm uppercase tracking-wider">Opérations</span>
                         <div class="w-8 h-8 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-                            <span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+                            <i class="bi-arrow-left-right text-[18px]"></i>
                         </div>
                     </div>
                     <p class="text-headline-sm font-headline-sm"><?= $totalOperations ?></p>
@@ -105,7 +107,7 @@
                             <option>50 lignes</option>
                         </select>
                         <div class="flex items-center gap-xs px-3 py-1 bg-surface-container-low rounded-lg text-secondary">
-                            <span class="material-symbols-outlined text-[18px]">filter_list</span>
+                            <i class="bi-funnel text-[18px]"></i>
                             <span class="text-label-sm">Filtres</span>
                         </div>
                     </div>
@@ -134,7 +136,7 @@
 
                                         <td class="px-lg py-md text-right">
                                             <button class="p-xs text-secondary hover:text-primary transition-colors" type="button">
-                                                <span class="material-symbols-outlined">more_vert</span>
+                                                <i class="bi-three-dots-vertical"></i>
                                             </button>
                                         </td>
                                     </tr>
@@ -152,7 +154,7 @@
                 <!-- Pagination -->
                 <!-- <div class="p-lg border-t border-outline-variant/30 flex items-center justify-between">
 <button class="flex items-center gap-xs px-md py-sm rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled="">
-<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+<i class="bi-chevron-left text-[18px]"></i>
                         Précédent
                     </button>
 <div class="flex items-center gap-xs">
@@ -164,7 +166,7 @@
 </div>
 <button class="flex items-center gap-xs px-md py-sm rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">
                         Suivant
-                        <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        <i class="bi-chevron-right text-[18px]"></i>
 </button>
 </div> -->
             </div>

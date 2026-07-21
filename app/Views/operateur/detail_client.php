@@ -14,7 +14,7 @@
         <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
             <div class="flex items-center gap-lg">
                 <button class="lg:hidden p-xs rounded-full hover:bg-surface-container">
-                    <span class="material-symbols-outlined">menu</span>
+                    <i class="bi-list"></i>
                 </button>
                 <h2 class="font-headline-md text-headline-md text-on-surface">Détail Client</h2>
             </div>
@@ -24,7 +24,7 @@
             <!-- Client Info Card -->
             <div class="bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden mb-xl">
                 <div class="p-lg border-b border-outline-variant/30 font-label-md text-on-primary bg-primary flex items-center gap-sm">
-                    <span class="material-symbols-outlined text-[20px]">person</span>
+                    <i class="bi-person text-[20px]"></i>
                     Informations du Client
                 </div>
                 <div class="overflow-x-auto">
@@ -52,7 +52,7 @@
             <!-- Historique Card -->
             <div class="bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden mb-xl">
                 <div class="p-lg border-b border-outline-variant/30 font-label-md text-on-primary bg-secondary flex items-center gap-sm">
-                    <span class="material-symbols-outlined text-[20px]">history</span>
+                    <i class="bi-clock-history text-[20px]"></i>
                     Historique des 5 dernières opérations
                 </div>
                 <?php if (!empty($historique)): ?>
@@ -88,7 +88,7 @@
             <!-- Actions -->
             <div class="flex flex-col sm:flex-row gap-md mt-xl">
                 <a href="<?= base_url('clients'); ?>" class="inline-flex items-center justify-center gap-xs px-md py-sm rounded-xl border border-outline-variant hover:bg-surface-container transition-colors font-label-md text-secondary">
-                    <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                    <i class="bi-arrow-left text-[20px]"></i>
                     Retour à la liste
                 </a>
             </div>

@@ -14,7 +14,7 @@
         <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
             <div class="flex items-center gap-lg">
                 <button class="lg:hidden p-xs rounded-full hover:bg-surface-container">
-                    <span class="material-symbols-outlined">menu</span>
+                    <i class="bi-list"></i>
                 </button>
                 <h2 class="font-headline-md text-headline-md text-on-surface">Types d'opérations</h2>
             </div>
@@ -28,13 +28,13 @@
             </div>
             <?php if (session()->getFlashdata('success')): ?>
                 <div class="mb-xl p-md bg-green-100 text-green-800 rounded-xl flex items-center gap-sm">
-                    <span class="material-symbols-outlined">check_circle</span>
+                    <i class="bi-check-circle"></i>
                     <?= session()->getFlashdata('success') ?>
                 </div>
             <?php endif; ?>
             <?php if (session()->getFlashdata('error')): ?>
                 <div class="mb-xl p-md bg-red-100 text-red-800 rounded-xl flex items-center gap-sm">
-                    <span class="material-symbols-outlined">error</span>
+                    <i class="bi-x-circle"></i>
                     <?= session()->getFlashdata('error') ?>
                 </div>
             <?php endif; ?>
@@ -44,7 +44,7 @@
                         <div class="p-lg border-b border-outline-variant/30">
                             <div class="flex items-center gap-sm">
                                 <div class="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-[20px]">add_circle</span>
+                                    <i class="bi-plus-circle text-[20px]"></i>
                                 </div>
                                 <div>
                                     <h3 class="font-headline-sm text-headline-sm text-on-surface">Nouveau type</h3>
@@ -96,14 +96,14 @@
                                                 <td class="px-lg py-md font-label-md text-label-md text-secondary"><?= esc($op['id']) ?></td>
                                                 <td class="px-lg py-md">
                                                     <span class="inline-flex items-center gap-xs px-sm py-1 bg-primary/10 text-primary rounded-full font-label-md">
-                                                        <span class="material-symbols-outlined text-[16px]">label</span>
+                                                        <i class="bi-tag text-[16px]"></i>
                                                         <?= esc($op['libelle']) ?>
                                                     </span>
                                                 </td>
                                                 <td class="px-lg py-md text-right">
                                                     <div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
                                                         <a href="<?= base_url('operations/delete/' . $op['id']) ?>" class="p-2 text-error hover:bg-error/10 rounded-full transition-colors" title="Supprimer" onclick="return confirm('Supprimer ce type d\'opération ?')">
-                                                            <span class="material-symbols-outlined text-[20px]">delete</span>
+                                                            <i class="bi-trash text-[20px]"></i>
                                                         </a>
                                                     </div>
                                                 </td>

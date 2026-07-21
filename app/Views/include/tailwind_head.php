@@ -1,6 +1,6 @@
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="<?= base_url('assets/tailwind/tailwind.js') ?>?plugins=forms,container-queries"></script>
+<link href="<?= base_url('assets/fonts/fonts.css') ?>" rel="stylesheet"/>
+<link href="<?= base_url('assets/bootstrap/css/bootstrap-icons.css') ?>" rel="stylesheet"/>
 <script>
 tailwind.config = {
     darkMode: "class",
@@ -100,8 +100,5 @@ tailwind.config = {
 </script>
 <style>
 body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
 .active-nav { font-variation-settings: 'FILL' 1; }
 </style>

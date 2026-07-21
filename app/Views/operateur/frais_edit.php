@@ -14,7 +14,7 @@
         <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
             <div class="flex items-center gap-md">
                 <button class="lg:hidden p-xs">
-                    <span class="material-symbols-outlined">menu</span>
+                    <i class="bi-list"></i>
                 </button>
                 <h2 class="font-headline-md text-headline-md text-on-surface">Modifier un Barème</h2>
             </div>
@@ -22,13 +22,13 @@
         <div class="p-gutter flex-grow max-w-[800px] w-full mx-auto">
             <div class="flex items-center gap-sm mb-xl">
                 <a href="<?= base_url('frais/ajouter') ?>" class="flex items-center gap-xs text-primary font-label-md hover:underline">
-                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    <i class="bi-arrow-left text-[18px]"></i>
                     Retour aux barèmes
                 </a>
             </div>
             <?php if (session()->getFlashdata('error')): ?>
                 <div class="mb-xl p-md bg-red-100 text-red-800 rounded-xl flex items-center gap-sm">
-                    <span class="material-symbols-outlined">error</span>
+                    <i class="bi-x-circle"></i>
                     <?= session()->getFlashdata('error') ?>
                 </div>
             <?php endif; ?>
@@ -36,7 +36,7 @@
                 <div class="p-lg border-b border-outline-variant/30">
                     <div class="flex items-center gap-sm">
                         <div class="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center">
-                            <span class="material-symbols-outlined text-[20px]">edit</span>
+                            <i class="bi-pencil text-[20px]"></i>
                         </div>
                         <div>
                             <h3 class="font-headline-sm text-headline-sm text-on-surface">Modifier le barème</h3>

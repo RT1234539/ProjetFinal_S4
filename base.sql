@@ -30,9 +30,7 @@ CREATE TABLE prefix (
 
 INSERT INTO prefix (prefix, nom) VALUES
     ('034', 'Telma'),
-    ('031', 'Telma'),
-    ('032', 'Airtel'),
-    ('030', 'Telma');
+    ('033', 'Telma');
 
 CREATE TABLE operation (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -61,9 +59,10 @@ CREATE TABLE autre_operateur (
 );
 
 INSERT INTO autre_operateur (prefix, nom) VALUES
-    ('034', 'Telma'),
     ('032', 'Airtel'),
-    ('038', 'Bip');
+    ('033', 'Orange'),
+    ('031', 'Bip');
+
 
 CREATE TABLE operateur_externe (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -10,27 +10,27 @@
 <?= view('include/sidebar_client', ['active' => 'depot']) ?>
 <header class="bg-white shadow-sm flex items-center px-4 h-16 w-full fixed top-0 z-50 md:pl-[300px]">
 <a href="<?= base_url('accueil') ?>" class="p-2 hover:bg-surface-container rounded-full transition-colors md:hidden">
-<span class="material-symbols-outlined">arrow_back</span>
+<i class="bi-arrow-left"></i>
 </a>
 <h1 class="ml-2 text-headline-md font-headline-md">Effectuer un dépôt</h1>
 </header>
 <main class="pt-24 pb-24 md:pb-8 md:pl-[300px] px-4 md:px-8 min-h-screen max-w-[1440px] mx-auto">
 <?php if (session()->getFlashdata('success')): ?>
 <div class="mb-4 p-4 bg-green-100 text-green-800 rounded-xl flex items-center gap-2">
-<span class="material-symbols-outlined">check_circle</span>
+<i class="bi-check-circle"></i>
 <?= session()->getFlashdata('success') ?>
 </div>
 <?php endif; ?>
 <?php if (session()->getFlashdata('error')): ?>
 <div class="mb-4 p-4 bg-red-100 text-red-800 rounded-xl flex items-center gap-2">
-<span class="material-symbols-outlined">error</span>
+<i class="bi-x-circle"></i>
 <?= session()->getFlashdata('error') ?>
 </div>
 <?php endif; ?>
 <div class="bg-white rounded-xl shadow-sm border border-outline-variant p-6">
 <div class="flex items-center gap-3 mb-6">
 <div class="w-12 h-12 bg-primary-fixed-dim text-primary rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<i class="bi-plus-circle"></i>
 </div>
 <div>
 <h2 class="text-headline-sm font-headline-sm">Nouveau dépôt</h2>

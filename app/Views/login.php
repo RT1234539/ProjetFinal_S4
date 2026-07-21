@@ -6,9 +6,8 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Connexion | NexusPay</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script src="<?= base_url('assets/tailwind/tailwind.js') ?>?plugins=forms,container-queries"></script>
+    <link href="<?= base_url('assets/fonts/fonts.css') ?>" rel="stylesheet"/>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -141,8 +140,8 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        .bi {
+            font-style: normal;
         }
 
         .glass-card {
@@ -185,7 +184,7 @@
         <div class="hero-circle w-[400px] h-[400px] bottom-10 right-10"></div>
         <div class="relative z-10 text-center space-y-md max-w-lg">
             <div class="inline-flex items-center justify-center p-sm bg-white/10 rounded-2xl backdrop-blur-md border border-white/20 mb-lg shadow-2xl">
-                <span class="material-symbols-outlined text-[64px] text-white" data-icon="account_balance_wallet">account_balance_wallet</span>
+                <i class="bi bi-wallet2 text-[64px] text-white"></i>
             </div>
             <h1 class="font-headline-lg text-headline-lg text-white">NexusPay</h1>
             <p class="font-headline-sm text-headline-sm text-primary-fixed-dim font-medium">Gestion Mobile Money</p>
@@ -210,20 +209,20 @@
             <!-- Mobile Logo (Visible only on small screens) -->
             <div class="lg:hidden flex flex-col items-center mb-xl">
                 <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-sm shadow-lg shadow-primary/20">
-                    <span class="material-symbols-outlined text-white text-[30px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+                    <i class="bi bi-wallet2 text-white text-[30px]"></i>
                 </div>
                 <h1 class="font-headline-md text-headline-md text-primary">NexusPay</h1>
             </div>
             <div class="glass-card rounded-xl p-xl lg:p-margin-desktop border border-outline-variant/20">
                 <?php if (session()->getFlashdata('error')): ?>
                 <div class="mb-lg p-md bg-error-container text-on-error-container rounded-lg flex items-center gap-sm text-body-sm font-body-sm">
-                    <span class="material-symbols-outlined text-[20px]">error</span>
+                    <i class="bi-x-circle text-[20px]"></i>
                     <?= session()->getFlashdata('error') ?>
                 </div>
                 <?php endif; ?>
                 <?php if (!empty($message) && ($status ?? '') === 'error'): ?>
                 <div class="mb-lg p-md bg-error-container text-on-error-container rounded-lg flex items-center gap-sm text-body-sm font-body-sm">
-                    <span class="material-symbols-outlined text-[20px]">error</span>
+                    <i class="bi-x-circle text-[20px]"></i>
                     <?= esc($message) ?>
                 </div>
                 <?php endif; ?>
@@ -243,7 +242,7 @@
                         <div class="relative group">
                             <div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
                                 <div class="flex items-center gap-xs border-r border-outline-variant/50 pr-xs mr-xs">
-                                    <img alt="Ivory Coast" class="rounded-[2px]" src="" srcset="https://flagcdn.com/w40/mg.png 2x" width="20" />
+                                    <span class="font-body-md text-body-md font-medium text-on-surface">🇲🇬</span>
                                     <span class="font-body-md text-body-md font-medium text-on-surface">+261</span>
                                 </div>
                             </div>
@@ -255,7 +254,7 @@
                         <label class="flex items-center gap-sm cursor-pointer group">
                             <div class="relative flex items-center">
                                 <input class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-outline-variant bg-white transition-all checked:bg-primary checked:border-primary focus:ring-primary/20" id="remember" type="checkbox" />
-                                <span class="material-symbols-outlined absolute text-white opacity-0 peer-checked:opacity-100 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none text-[16px] font-bold" data-icon="check">check</span>
+                                <i class="bi bi-check-lg absolute text-white opacity-0 peer-checked:opacity-100 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none text-[16px] font-bold"></i>
                             </div>
                             <span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Rester connecté</span>
                         </label>
@@ -264,7 +263,7 @@
                     <!-- Submit Button -->
                     <button class="w-full bg-primary text-on-primary py-md rounded-lg font-headline-sm text-headline-sm flex items-center justify-center gap-sm hover:bg-primary-container active:scale-[0.98] transition-all shadow-lg shadow-primary/20 group" id="submitBtn" type="submit">
                         <span>Se connecter</span>
-                        <span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1" data-icon="login">login</span>
+                        <i class="bi bi-box-arrow-in-right transition-transform duration-300 group-hover:translate-x-1"></i>
                     </button>
                 </form>
                 <!-- Épuré Help Section -->

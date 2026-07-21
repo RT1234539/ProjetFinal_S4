@@ -14,7 +14,7 @@
         <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
             <div class="flex items-center gap-lg">
                 <button class="lg:hidden p-xs rounded-full hover:bg-surface-container">
-                    <span class="material-symbols-outlined">menu</span>
+                    <i class="bi-list"></i>
                 </button>
                 <h2 class="font-headline-md text-headline-md text-on-surface">Modifier Type d'opération</h2>
             </div>
@@ -22,13 +22,13 @@
         <div class="flex-1 p-gutter max-w-[800px] w-full mx-auto">
             <div class="flex items-center gap-sm mb-xl">
                 <a href="<?= base_url('operations') ?>" class="flex items-center gap-xs text-primary font-label-md hover:underline">
-                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    <i class="bi-arrow-left text-[18px]"></i>
                     Retour à la liste
                 </a>
             </div>
             <?php if (session()->getFlashdata('error')): ?>
                 <div class="mb-xl p-md bg-red-100 text-red-800 rounded-xl flex items-center gap-sm">
-                    <span class="material-symbols-outlined">error</span>
+                    <i class="bi-x-circle"></i>
                     <?= session()->getFlashdata('error') ?>
                 </div>
             <?php endif; ?>
@@ -36,7 +36,7 @@
                 <div class="p-lg border-b border-outline-variant/30">
                     <div class="flex items-center gap-sm">
                         <div class="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center">
-                            <span class="material-symbols-outlined text-[20px]">edit</span>
+                            <i class="bi-pencil text-[20px]"></i>
                         </div>
                         <div>
                             <h3 class="font-headline-sm text-headline-sm text-on-surface">Modifier le type</h3>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="flex items-center gap-md pt-md">
                         <button type="submit" class="flex items-center gap-xs px-lg py-sm bg-primary text-on-primary font-label-md rounded-xl hover:shadow-lg transition-all active:scale-95">
-                            <span class="material-symbols-outlined text-[20px]">save</span>
+                            <i class="bi-save text-[20px]"></i>
                             Mettre à jour
                         </button>
                         <a href="<?= base_url('operations') ?>" class="flex items-center gap-xs px-lg py-sm bg-surface-container-highest text-on-surface-variant font-label-md rounded-xl hover:bg-outline-variant transition-colors">

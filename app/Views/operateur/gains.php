@@ -14,7 +14,7 @@
         <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
             <div class="flex items-center gap-lg">
                 <button class="lg:hidden p-xs rounded-full hover:bg-surface-container">
-                    <span class="material-symbols-outlined">menu</span>
+                    <i class="bi-list"></i>
                 </button>
                 <h2 class="font-headline-md text-headline-md text-on-surface">Gains par opération</h2>
             </div>
@@ -52,7 +52,7 @@
                     </div>
                 <?php else: ?>
                     <div class="p-md bg-amber-100 text-amber-800 rounded-xl flex items-center gap-sm">
-                        <span class="material-symbols-outlined">warning</span>
+                        <i class="bi-exclamation-triangle"></i>
                         Aucun gain interne trouvé.
                     </div>
                 <?php endif; ?>
@@ -91,7 +91,7 @@
                     </div>
                 <?php else: ?>
                     <div class="p-md bg-blue-100 text-blue-800 rounded-xl flex items-center gap-sm">
-                        <span class="material-symbols-outlined">info</span>
+                        <i class="bi-info-circle"></i>
                         Aucun gain externe pour le moment.
                     </div>
                 <?php endif; ?>
@@ -130,7 +130,7 @@
                     </div>
                 <?php else: ?>
                     <div class="p-md bg-blue-100 text-blue-800 rounded-xl flex items-center gap-sm">
-                        <span class="material-symbols-outlined">info</span>
+                        <i class="bi-info-circle"></i>
                         Aucun transfert externe sortant.
                     </div>
                 <?php endif; ?>
@@ -156,7 +156,7 @@
 
             <div class="mt-xl text-center">
                 <a href="<?= base_url('gains') ?>" class="inline-flex items-center gap-xs px-md py-sm rounded-xl border border-outline-variant hover:bg-surface-container transition-colors font-label-md text-secondary">
-                    <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                    <i class="bi-arrow-left text-[20px]"></i>
                     Retour
                 </a>
             </div>
