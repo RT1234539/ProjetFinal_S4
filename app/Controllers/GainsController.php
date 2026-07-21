@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controllers;
-
 use App\Models\GainsModel;
 
 class GainsController extends BaseController
@@ -15,14 +13,14 @@ class GainsController extends BaseController
 
     public function listeGains()
     {
-        $gainsParOperation = $this->gainsModel->getGainsParOperation();
-        $gainTotal = $this->gainsModel->getGainTotal();
-
         $data = [
-            'gainsParOperation' => $gainsParOperation,
-            'gainTotal'   => $gainTotal
+            'gainsParOperation' => $this->gainsModel->getGainsParOperation(),
+            'gainTotal'         => $this->gainsModel->getGainTotal(),
+            'gainsInterne'      => $this->gainsModel->getGainsInterne(),
+            'gainsExterne'      => $this->gainsModel->getGainsExterne(),
+            'gainTotalGlobal'   => $this->gainsModel->getGainTotalGlobal(),
+            'montantsEnvoyes'   => $this->gainsModel->getMontantsEnvoyesParOperateur(),
         ];
-
         return view('operateur/gains', $data);
     }
 }

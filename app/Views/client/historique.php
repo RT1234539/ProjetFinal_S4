@@ -1,45 +1,32 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html class="light" lang="fr">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>NexusPay | Historique</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                "colors": {
-                    "primary": "#003f87",
-                    "on-primary": "#ffffff",
-                    "primary-container": "#0056b3",
-                    "on-primary-container": "#bbd0ff",
-                    "surface-container": "#edeeef",
-                    "surface": "#f8f9fa",
-                    "on-surface": "#191c1d",
-                    "on-surface-variant": "#424752",
-                    "outline-variant": "#c2c6d4",
-                    "error": "#ba1a1a",
-                    "secondary": "#575f67"
-                }
-            }
-        }
-    }
-</script>
-<style>
-    body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
-</style>
+<?= view('include/tailwind_head') ?>
 </head>
-<body class="text-on-surface min-h-screen">
-<header class="bg-white shadow-sm flex items-center px-4 h-16 w-full fixed top-0 z-50">
-<a href="<?= base_url('accueil') ?>" class="p-2 hover:bg-surface-container rounded-full transition-colors">
+<body class="text-on-surface">
+<?= view('include/sidebar_client', ['active' => 'historique']) ?>
+<header class="bg-white shadow-sm flex items-center px-4 h-16 w-full fixed top-0 z-50 md:pl-[300px]">
+<a href="<?= base_url('accueil') ?>" class="p-2 hover:bg-surface-container rounded-full transition-colors md:hidden">
 <span class="material-symbols-outlined">arrow_back</span>
 </a>
-<h1 class="ml-2 text-headline-md font-headline-md">Historique des op&eacute;rations</h1>
+<h1 class="ml-2 text-headline-md font-headline-md">Historique des opérations</h1>
 </header>
-<main class="pt-24 pb-8 px-4 max-w-3xl mx-auto">
+<main class="pt-24 pb-24 md:pb-8 md:pl-[300px] px-4 md:px-8 min-h-screen max-w-[1440px] mx-auto">
+<?php if (session()->getFlashdata('success')): ?>
+<div class="mb-4 p-4 bg-green-100 text-green-800 rounded-xl flex items-center gap-2">
+<span class="material-symbols-outlined">check_circle</span>
+<?= session()->getFlashdata('success') ?>
+</div>
+<?php endif; ?>
+<?php if (session()->getFlashdata('error')): ?>
+<div class="mb-4 p-4 bg-red-100 text-red-800 rounded-xl flex items-center gap-2">
+<span class="material-symbols-outlined">error</span>
+<?= session()->getFlashdata('error') ?>
+</div>
+<?php endif; ?>
 <div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
 <?php if (!empty($historique)): ?>
 <div class="overflow-x-auto">
@@ -75,13 +62,10 @@
 <?php else: ?>
 <div class="p-8 text-center">
 <span class="material-symbols-outlined text-4xl text-outline-variant mb-2">receipt_long</span>
-<p class="text-body-sm text-on-surface-variant">Aucune op&eacute;ration enregistr&eacute;e.</p>
+<p class="text-body-sm text-on-surface-variant">Aucune opération enregistrée.</p>
 </div>
 <?php endif; ?>
 </div>
-<a href="<?= base_url('accueil') ?>" class="mt-4 block text-center text-primary font-label-md hover:underline">
-&larr; Retour &agrave; l'accueil
-</a>
 </main>
 </body>
 </html>

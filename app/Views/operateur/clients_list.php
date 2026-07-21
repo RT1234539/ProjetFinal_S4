@@ -1,176 +1,13 @@
 <!DOCTYPE html>
-
-<html class="light" lang="fr"><head>
+<html class="light" lang="fr">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Comptes Clients - Admin Mobile Money</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-error-container": "#93000a",
-                    "on-error": "#ffffff",
-                    "primary-fixed-dim": "#acc7ff",
-                    "secondary-fixed": "#dbe4ed",
-                    "on-primary-container": "#bbd0ff",
-                    "secondary-container": "#d8e1ea",
-                    "inverse-primary": "#acc7ff",
-                    "surface-container-high": "#e7e8e9",
-                    "surface-container-low": "#f3f4f5",
-                    "surface-container-lowest": "#ffffff",
-                    "error-container": "#ffdad6",
-                    "on-surface": "#191c1d",
-                    "primary-fixed": "#d7e2ff",
-                    "on-secondary-fixed": "#141d23",
-                    "on-background": "#191c1d",
-                    "background": "#f8f9fa",
-                    "surface-variant": "#e1e3e4",
-                    "on-tertiary-fixed-variant": "#7b2f00",
-                    "surface-bright": "#f8f9fa",
-                    "surface": "#f8f9fa",
-                    "tertiary": "#722b00",
-                    "on-secondary-fixed-variant": "#3f484f",
-                    "on-secondary-container": "#5b646b",
-                    "tertiary-fixed-dim": "#ffb694",
-                    "surface-tint": "#115cb9",
-                    "secondary-fixed-dim": "#bfc8d0",
-                    "tertiary-fixed": "#ffdbcc",
-                    "surface-container-highest": "#e1e3e4",
-                    "on-tertiary": "#ffffff",
-                    "error": "#ba1a1a",
-                    "on-primary": "#ffffff",
-                    "on-tertiary-fixed": "#351000",
-                    "inverse-on-surface": "#f0f1f2",
-                    "primary-container": "#0056b3",
-                    "inverse-surface": "#2e3132",
-                    "on-primary-fixed": "#001a40",
-                    "secondary": "#575f67",
-                    "surface-container": "#edeeef",
-                    "outline-variant": "#c2c6d4",
-                    "tertiary-container": "#983c00",
-                    "on-tertiary-container": "#ffc2a7",
-                    "primary": "#003f87",
-                    "outline": "#727784",
-                    "surface-dim": "#d9dadb",
-                    "on-surface-variant": "#424752",
-                    "on-primary-fixed-variant": "#004491",
-                    "on-secondary": "#ffffff"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "xl": "2rem",
-                    "gutter": "1.5rem",
-                    "margin-mobile": "1rem",
-                    "md": "1rem",
-                    "sm": "0.75rem",
-                    "base": "4px",
-                    "margin-desktop": "2rem",
-                    "lg": "1.5rem",
-                    "xs": "0.5rem"
-            },
-            "fontFamily": {
-                    "label-sm": ["Inter"],
-                    "body-md": ["Inter"],
-                    "label-md": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "headline-lg-mobile": ["Inter"],
-                    "body-sm": ["Inter"],
-                    "headline-sm": ["Inter"]
-            },
-            "fontSize": {
-                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
-                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        body { font-family: 'Inter', sans-serif; }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .active-nav { font-variation-settings: 'FILL' 1; }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
-    </style>
+<?= view('include/tailwind_head') ?>
 </head>
 <body class="bg-background text-on-background min-h-screen flex">
-<!-- SideNavBar -->
-<aside class="hidden lg:flex flex-col h-screen border-r border-outline-variant bg-white w-72 fixed left-0 top-0 z-50">
-<div class="p-lg flex items-center gap-sm">
-<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
-<span class="material-symbols-outlined">account_balance_wallet</span>
-</div>
-<div>
-<h1 class="font-headline-sm text-headline-sm text-primary">Admin Money</h1>
-<p class="font-label-sm text-label-sm text-secondary">Gestionnaire Mobile</p>
-</div>
-</div>
-<nav class="flex-1 mt-md space-y-1">
-<!-- Navigation Items Mapping from JSON -->
-<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
-<span class="material-symbols-outlined mr-sm">dashboard</span>
-<span class="font-label-md text-label-md">Dashboard</span>
-</a>
-<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
-<span class="material-symbols-outlined mr-sm">phone_iphone</span>
-<span class="font-label-md text-label-md">Préfixes</span>
-</a>
-<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
-<span class="material-symbols-outlined mr-sm">payments</span>
-<span class="font-label-md text-label-md">Barèmes</span>
-</a>
-<!-- Active State: Comptes clients -->
-<a class="flex items-center px-lg py-sm bg-primary-container text-on-primary-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
-<span class="material-symbols-outlined mr-sm" style="font-variation-settings: 'FILL' 1;">group</span>
-<span class="font-label-md text-label-md">Comptes clients</span>
-</a>
-<!-- <a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
-<span class="material-symbols-outlined mr-sm">calculate</span>
-<span class="font-label-md text-label-md">Simulation</span>
-</a>
-<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
-<span class="material-symbols-outlined mr-sm">leaderboard</span>
-<span class="font-label-md text-label-md">Statistiques</span>
-</a>
-<a class="flex items-center px-lg py-sm text-secondary hover:bg-surface-container rounded-lg mx-2 my-1 transition-transform hover:translate-x-1" href="#">
-<span class="material-symbols-outlined mr-sm">settings</span>
-<span class="font-label-md text-label-md">Paramètres</span>
-</a> -->
-</nav>
-<div class="p-lg border-t border-outline-variant">
-<div class="flex items-center gap-sm">
-<img class="w-10 h-10 rounded-full border-2 border-primary-fixed" data-alt="A professional headshot of a financial administrator, looking confident and approachable, wearing a modern business casual outfit. The background is a blurred office environment with soft blue and white tones that match the corporate mobile money interface style. High quality lighting, sharp focus on the person, and minimalist aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD58Ilhh6mvgds-GLTF5uRZPyskgmx1UIFCqRgPbTQ4twwCmpvGte5r6EV_XtiZHDSaSwKHcbc3ihX8C3LnAeYOulSb5fQM_YPawpNoArWfOYWXcM3ux1kOTMfrYP0A3R9umIa-M7BOjBuW_0-PgxHiS59AMkFrwOHBKWvTh27NuEJftp4IAu_Isu2AEhkK1zN895E3WFrfnHbGu2oy9sbDsHahOLUp8cHtANR5PayaiCAZ2jxd-Wm1tryh8N90PbnzVREMwxAd8tmq"/>
-<div class="overflow-hidden">
-<p class="font-label-md text-label-md truncate">Jean </p>
-<p class="font-label-sm text-label-sm text-secondary truncate">Super Administrateur</p>
-</div>
-</div>
-</div>
-</aside>
-<!-- Main Content -->
+<?= view('include/sidebar_admin', ['active' => 'clients']) ?>
 <main class="flex-1 lg:ml-72 flex flex-col min-h-screen">
 <!-- TopNavBar -->
 <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
@@ -330,37 +167,6 @@ $clientsActifs = count(array_filter($clientsData, fn($client) => (float) ($clien
 </div> -->
 </div>
 </div>
-<!-- Footer -->
-<footer class="flex justify-between items-center px-gutter w-full mt-auto py-4 bg-surface-container-low border-t border-outline-variant">
-<p class="font-label-sm text-label-sm text-secondary">© 2024 Mobile Money - Tous droits réservés</p>
-<div class="flex gap-lg">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Version 2.1.0</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Projet Cash Point</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Cash</span>
-</div>
-</footer>
-</main>
-<!-- Mobile Navigation (Bottom Bar) -->
-<nav class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface border-t border-outline-variant/30 z-50 flex items-center justify-around px-md">
-<button class="flex flex-col items-center gap-1 text-secondary">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="text-[10px] font-label-sm">Board</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-secondary">
-<span class="material-symbols-outlined">payments</span>
-<span class="text-[10px] font-label-sm">Flux</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-primary">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
-<span class="text-[10px] font-label-sm font-bold">Clients</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-secondary">
-<span class="material-symbols-outlined">settings</span>
-<span class="text-[10px] font-label-sm">Param.</span>
-</button>
-</nav>
-<!-- Overlay for mobile drawer if implemented -->
-<div class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden" id="sidebarOverlay"></div>
 <script>
         // Simple micro-interactions
         document.querySelectorAll('tr').forEach(row => {
@@ -392,5 +198,6 @@ $clientsActifs = count(array_filter($clientsData, fn($client) => (float) ($clien
             }
         });
     </script>
-</body></html>
-
+</main>
+</body>
+</html>
