@@ -129,6 +129,7 @@ class OperationUtilisateurController extends BaseController
             return redirect()->back()->with('error', 'Le préfixe ' . $prefix . ' n\'est pas valide.');
         }
 
+        //
         $expediteur = $this->utilisateurModel->find($idExpediteur);
         if ($expediteur && $expediteur['numero'] === $numeroDestinataire) {
             return redirect()->back()->with('error', 'Vous ne pouvez pas vous transférer à vous-même.');
