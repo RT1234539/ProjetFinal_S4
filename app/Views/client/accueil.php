@@ -21,7 +21,7 @@ $soldeMontant = $solde['solde'] ?? 0;
 <span class="text-headline-md font-headline-md text-primary">NexusPay</span>
 </div>
 <div class="flex items-center gap-4">
-<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container transition-colors rounded-full">notifications</button>
+<button class="bi-bell text-primary p-2 hover:bg-surface-container transition-colors rounded-full">
 <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center border-2 border-surface-container-high">
 <span class="text-on-primary-container font-label-md"><?= strtoupper(substr($numero, -2)) ?></span>
 </div>
@@ -32,13 +32,13 @@ $soldeMontant = $solde['solde'] ?? 0;
 <!-- Flash Messages -->
 <?php if (session()->getFlashdata('success')): ?>
 <div class="mb-4 p-4 bg-green-100 text-green-800 rounded-xl flex items-center gap-2">
-<span class="material-symbols-outlined">check_circle</span>
+<i class="bi-check-circle"></i>
 <?= session()->getFlashdata('success') ?>
 </div>
 <?php endif; ?>
 <?php if (session()->getFlashdata('error')): ?>
 <div class="mb-4 p-4 bg-red-100 text-red-800 rounded-xl flex items-center gap-2">
-<span class="material-symbols-outlined">error</span>
+<i class="bi-x-circle"></i>
 <?= session()->getFlashdata('error') ?>
 </div>
 <?php endif; ?>
@@ -58,30 +58,30 @@ $soldeMontant = $solde['solde'] ?? 0;
 <!-- Quick Actions Bento Grid -->
 <section class="mb-6">
 <h3 class="text-headline-sm font-headline-sm mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">bolt</span> Actions Rapides
+<i class="bi-lightning-fill text-primary"></i> Actions Rapides
 </h3>
 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
 <a href="<?= base_url('clients/depot') ?>" class="flex flex-col items-center justify-center p-6 bg-white shadow-sm rounded-xl border border-outline-variant hover:border-primary hover:shadow-md transition-all active:scale-95 group">
 <div class="w-12 h-12 bg-primary-fixed-dim text-primary rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<i class="bi-plus-circle"></i>
 </div>
 <span class="text-label-md font-label-md text-primary">D&eacute;p&ocirc;t</span>
 </a>
 <a href="<?= base_url('clients/retrait') ?>" class="flex flex-col items-center justify-center p-6 bg-white shadow-sm rounded-xl border border-outline-variant hover:border-primary hover:shadow-md transition-all active:scale-95 group">
 <div class="w-12 h-12 bg-secondary-container text-secondary rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<i class="bi-credit-card"></i>
 </div>
 <span class="text-label-md font-label-md text-secondary">Retrait</span>
 </a>
 <a href="<?= base_url('clients/transfert') ?>" class="flex flex-col items-center justify-center p-6 bg-white shadow-sm rounded-xl border border-outline-variant hover:border-primary hover:shadow-md transition-all active:scale-95 group">
 <div class="w-12 h-12 bg-tertiary-fixed text-tertiary rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+<i class="bi-send"></i>
 </div>
 <span class="text-label-md font-label-md text-tertiary">Transfert</span>
 </a>
 <a href="<?= base_url('clients/historique') ?>" class="flex flex-col items-center justify-center p-6 bg-white shadow-sm rounded-xl border border-outline-variant hover:border-primary hover:shadow-md transition-all active:scale-95 group">
 <div class="w-12 h-12 bg-surface-container-high text-on-surface-variant rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<i class="bi-receipt"></i>
 </div>
 <span class="text-label-md font-label-md text-on-surface-variant">Historique</span>
 </a>

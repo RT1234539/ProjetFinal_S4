@@ -10,20 +10,20 @@
 <?= view('include/sidebar_client', ['active' => 'historique']) ?>
 <header class="bg-white shadow-sm flex items-center px-4 h-16 w-full fixed top-0 z-50 md:pl-[300px]">
 <a href="<?= base_url('accueil') ?>" class="p-2 hover:bg-surface-container rounded-full transition-colors md:hidden">
-<span class="material-symbols-outlined">arrow_back</span>
+<i class="bi-arrow-left"></i>
 </a>
 <h1 class="ml-2 text-headline-md font-headline-md">Historique des opérations</h1>
 </header>
 <main class="pt-24 pb-24 md:pb-8 md:pl-[300px] px-4 md:px-8 min-h-screen max-w-[1440px] mx-auto">
 <?php if (session()->getFlashdata('success')): ?>
 <div class="mb-4 p-4 bg-green-100 text-green-800 rounded-xl flex items-center gap-2">
-<span class="material-symbols-outlined">check_circle</span>
+<i class="bi-check-circle"></i>
 <?= session()->getFlashdata('success') ?>
 </div>
 <?php endif; ?>
 <?php if (session()->getFlashdata('error')): ?>
 <div class="mb-4 p-4 bg-red-100 text-red-800 rounded-xl flex items-center gap-2">
-<span class="material-symbols-outlined">error</span>
+<i class="bi-x-circle"></i>
 <?= session()->getFlashdata('error') ?>
 </div>
 <?php endif; ?>
@@ -45,7 +45,7 @@
 <td class="px-4 py-3">
 <div class="flex items-center gap-3">
 <div class="w-8 h-8 rounded flex items-center justify-center <?= $montant >= 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700' ?>">
-<span class="material-symbols-outlined text-[18px]"><?= $montant >= 0 ? 'arrow_downward' : 'arrow_upward' ?></span>
+<i class="bi <?= $montant >= 0 ? 'bi-arrow-down' : 'bi-arrow-up' ?> text-[18px]"></i>
 </div>
 <span class="text-label-md font-label-md capitalize"><?= esc($op['operation']) ?></span>
 </div>
@@ -61,7 +61,7 @@
 </div>
 <?php else: ?>
 <div class="p-8 text-center">
-<span class="material-symbols-outlined text-4xl text-outline-variant mb-2">receipt_long</span>
+<i class="bi-receipt text-4xl text-outline-variant mb-2"></i>
 <p class="text-body-sm text-on-surface-variant">Aucune opération enregistrée.</p>
 </div>
 <?php endif; ?>

@@ -17,7 +17,7 @@ $numero = $user['numero'] ?? '0000000000';
         <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
             <div class="flex items-center gap-lg">
                 <button class="lg:hidden p-xs rounded-full hover:bg-surface-container">
-                    <span class="material-symbols-outlined">menu</span>
+                    <i class="bi-list"></i>
                 </button>
                 <h2 class="font-headline-md text-headline-md text-on-surface">Tableau de bord</h2>
             </div>
@@ -31,7 +31,7 @@ $numero = $user['numero'] ?? '0000000000';
 
             <?php if (session()->getFlashdata('success')): ?>
                 <div class="mb-xl p-md bg-green-100 text-green-800 rounded-xl flex items-center gap-sm">
-                    <span class="material-symbols-outlined">check_circle</span>
+                    <i class="bi-check-circle"></i>
                     <?= session()->getFlashdata('success') ?>
                 </div>
             <?php endif; ?>
@@ -54,7 +54,7 @@ $numero = $user['numero'] ?? '0000000000';
                     <a href="<?= base_url('clients') ?>" class="bg-white rounded-xl shadow-sm border border-outline-variant/30 p-lg hover:shadow-md hover:border-primary/30 transition-all group">
                         <div class="flex items-center gap-sm mb-md">
                             <div class="w-10 h-10 bg-primary-fixed-dim text-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <span class="material-symbols-outlined">group</span>
+                                <i class="bi-people"></i>
                             </div>
                             <span class="font-label-md text-label-sm text-secondary uppercase">Clients</span>
                         </div>
@@ -65,7 +65,7 @@ $numero = $user['numero'] ?? '0000000000';
                     <a href="<?= base_url('operations') ?>" class="bg-white rounded-xl shadow-sm border border-outline-variant/30 p-lg hover:shadow-md hover:border-secondary/30 transition-all group">
                         <div class="flex items-center gap-sm mb-md">
                             <div class="w-10 h-10 bg-secondary-container text-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <span class="material-symbols-outlined">receipt_long</span>
+                                <i class="bi-receipt"></i>
                             </div>
                             <span class="font-label-md text-label-sm text-secondary uppercase">Transactions</span>
                         </div>
@@ -76,7 +76,7 @@ $numero = $user['numero'] ?? '0000000000';
                     <a href="<?= base_url('gains') ?>" class="bg-white rounded-xl shadow-sm border border-outline-variant/30 p-lg hover:shadow-md hover:border-tertiary/30 transition-all group">
                         <div class="flex items-center gap-sm mb-md">
                             <div class="w-10 h-10 bg-tertiary-fixed text-tertiary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <span class="material-symbols-outlined">leaderboard</span>
+                                <i class="bi-bar-chart-line"></i>
                             </div>
                             <span class="font-label-md text-label-sm text-secondary uppercase">Gains</span>
                         </div>
@@ -87,7 +87,7 @@ $numero = $user['numero'] ?? '0000000000';
                     <a href="<?= base_url('prefix') ?>" class="bg-white rounded-xl shadow-sm border border-outline-variant/30 p-lg hover:shadow-md hover:border-primary/30 transition-all group">
                         <div class="flex items-center gap-sm mb-md">
                             <div class="w-10 h-10 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <span class="material-symbols-outlined">phone_iphone</span>
+                                <i class="bi-phone"></i>
                             </div>
                             <span class="font-label-md text-label-sm text-secondary uppercase">Préfixes</span>
                         </div>
@@ -100,36 +100,36 @@ $numero = $user['numero'] ?? '0000000000';
             <!-- Quick Actions -->
             <section class="mb-xl">
                 <h3 class="text-headline-sm font-headline-sm mb-lg flex items-center gap-sm">
-                    <span class="material-symbols-outlined text-primary">bolt</span> Accès rapides
+                    <i class="bi-lightning-fill text-primary"></i> Accès rapides
                 </h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-md">
                     <a href="<?= base_url('clients') ?>" class="flex flex-col items-center p-lg bg-white rounded-xl border border-outline-variant/30 hover:border-primary hover:shadow-md transition-all active:scale-95 group">
                         <div class="w-12 h-12 bg-primary-fixed-dim text-primary rounded-full flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+                            <i class="bi-people"></i>
                         </div>
                         <span class="text-label-md font-label-md text-primary">Clients</span>
                     </a>
                     <a href="<?= base_url('prefix') ?>" class="flex flex-col items-center p-lg bg-white rounded-xl border border-outline-variant/30 hover:border-primary hover:shadow-md transition-all active:scale-95 group">
                         <div class="w-12 h-12 bg-secondary-container text-secondary rounded-full flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
+                            <i class="bi-phone"></i>
                         </div>
                         <span class="text-label-md font-label-md text-secondary">Préfixes</span>
                     </a>
                     <a href="<?= base_url('operations') ?>" class="flex flex-col items-center p-lg bg-white rounded-xl border border-outline-variant/30 hover:border-primary hover:shadow-md transition-all active:scale-95 group">
                         <div class="w-12 h-12 bg-tertiary-fixed text-tertiary rounded-full flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">category</span>
+                            <i class="bi-grid"></i>
                         </div>
                         <span class="text-label-md font-label-md text-tertiary">Opérations</span>
                     </a>
                     <a href="<?= base_url('frais/ajouter') ?>" class="flex flex-col items-center p-lg bg-white rounded-xl border border-outline-variant/30 hover:border-primary hover:shadow-md transition-all active:scale-95 group">
                         <div class="w-12 h-12 bg-surface-container-high text-on-surface-variant rounded-full flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+                            <i class="bi-credit-card"></i>
                         </div>
                         <span class="text-label-md font-label-md text-on-surface-variant">Barèmes</span>
                     </a>
                     <a href="<?= base_url('gains') ?>" class="flex flex-col items-center p-lg bg-white rounded-xl border border-outline-variant/30 hover:border-primary hover:shadow-md transition-all active:scale-95 group">
                         <div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+                            <i class="bi-bar-chart-line"></i>
                         </div>
                         <span class="text-label-md font-label-md text-on-primary-container">Gains</span>
                     </a>
@@ -139,7 +139,7 @@ $numero = $user['numero'] ?? '0000000000';
             <!-- Dernières opérations -->
             <section class="mb-xl">
                 <h3 class="text-headline-sm font-headline-sm mb-lg flex items-center gap-sm">
-                    <span class="material-symbols-outlined text-primary">history</span> Dernières opérations
+                    <i class="bi-clock-history text-primary"></i> Dernières opérations
                 </h3>
                 <div class="bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
                     <?php if (!empty($dernieresOps)): ?>
@@ -180,7 +180,7 @@ $numero = $user['numero'] ?? '0000000000';
                         </div>
                     <?php else: ?>
                         <div class="p-xl text-center text-secondary font-body-md">
-                            <span class="material-symbols-outlined text-[48px] mb-sm block text-outline-variant">inbox</span>
+                            <i class="bi-inbox text-[48px] mb-sm block text-outline-variant"></i>
                             Aucune opération enregistrée.
                         </div>
                     <?php endif; ?>

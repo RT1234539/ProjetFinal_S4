@@ -30,7 +30,7 @@ CREATE TABLE prefix (
 
 INSERT INTO prefix (prefix, nom) VALUES
     ('034', 'Telma'),
-    ('038', 'Telma');
+    ('033', 'Telma');
 
 CREATE TABLE operation (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
