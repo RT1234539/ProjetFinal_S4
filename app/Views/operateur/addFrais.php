@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html class="light" lang="fr">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Barèmes des Frais - Admin Money</title>
-<?= view('include/tailwind_head') ?>
-<style>.bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }</style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Barèmes des Frais - Admin Money</title>
+    <?= view('include/tailwind_head') ?>
+    <style>
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
 </head>
+
 <body class="bg-background text-on-background min-h-screen flex">
 <?= view('include/sidebar_admin', ['active' => 'frais']) ?>
 <main class="flex-1 lg:ml-72 flex flex-col min-h-screen">
@@ -62,59 +70,59 @@
 <form action="<?= base_url() ?>frais/ajouter" method="post" class="space-y-md" id="fee-form">
 <?= csrf_field() ?>
 
-<div class="space-y-xs">
-<label class="font-label-md text-label-md text-on-surface-variant">Type d'opération</label>
-<select name="operation" class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all font-body-sm text-body-sm">
-<?php if (isset($operations)) { ?>
-    <?php for ($i = 1; $i < count($operations); $i++) {
-        $o = $operations[$i]; ?>
-        <option value="<?= $o['id'] ?>">
-            <?= $o['libelle'] ?>
-        </option>
-    <?php } ?>
-<?php } ?>
-</select>
-</div>
-<div class="grid grid-cols-2 gap-md">
-<div class="space-y-xs">
-<label class="font-label-md text-label-md text-on-surface-variant">Montant min.</label>
-<div class="relative">
-<input name="min" class="w-full pl-sm pr-12 bg-surface-container-low border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-primary outline-none font-body-sm text-body-sm" placeholder="0" type="number" />
-<span class="absolute right-3 top-2.5 text-secondary font-label-sm">Ar</span>
-</div>
-</div>
-<div class="space-y-xs">
-<label class="font-label-md text-label-md text-on-surface-variant">Montant max.</label>
-<div class="relative">
-<input name="max" class="w-full pl-sm pr-12 bg-surface-container-low border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-primary outline-none font-body-sm text-body-sm" placeholder="5000" type="number" />
-<span class="absolute right-3 top-2.5 text-secondary font-label-sm">Ar</span>
-</div>
-</div>
-</div>
-<div class="space-y-xs">
-<label class="font-label-md text-label-md text-on-surface-variant">Frais appliqués</label>
-<div class="relative">
-<input name="frais" class="w-full pl-sm pr-12 bg-surface-container-low border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-primary outline-none font-body-sm text-body-sm" placeholder="100" type="number" />
-<span class="absolute right-3 top-2.5 text-secondary font-label-sm">Ar</span>
-</div>
-</div>
-<div class="flex gap-sm pt-md">
-<button class="flex-grow bg-primary text-on-primary py-sm rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-md" type="submit">
-    Ajouter
-</button>
-<button class="px-md py-sm bg-surface-container border border-outline-variant text-on-surface-variant rounded-lg font-label-md text-label-md hover:bg-outline-variant transition-colors" type="reset">
-    Réinitialiser
-</button>
-</div>
-</form>
-<!-- Quick Stats in the Form Column -->
-<?php
-$successMessage = session()->getFlashdata('success');
-$displayMessage = $successMessage ?? $message ?? null;
-?>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Type d'opération</label>
+                            <select name="operation" class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all font-body-sm text-body-sm">
+                                <?php if (isset($operations)) { ?>
+                                    <?php for ($i = 1; $i < count($operations); $i++) {
+                                        $o = $operations[$i]; ?>
+                                        <option value="<?= $o['id'] ?>">
+                                            <?= $o['libelle'] ?>
+                                        </option>
+                                    <?php } ?>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-md">
+                            <div class="space-y-xs">
+                                <label class="font-label-md text-label-md text-on-surface-variant">Montant min.</label>
+                                <div class="relative">
+                                    <input name="min" class="w-full pl-sm pr-12 bg-surface-container-low border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-primary outline-none font-body-sm text-body-sm" placeholder="0" type="number" />
+                                    <span class="absolute right-3 top-2.5 text-secondary font-label-sm">Ar</span>
+                                </div>
+                            </div>
+                            <div class="space-y-xs">
+                                <label class="font-label-md text-label-md text-on-surface-variant">Montant max.</label>
+                                <div class="relative">
+                                    <input name="max" class="w-full pl-sm pr-12 bg-surface-container-low border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-primary outline-none font-body-sm text-body-sm" placeholder="5000" type="number" />
+                                    <span class="absolute right-3 top-2.5 text-secondary font-label-sm">Ar</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Frais appliqués</label>
+                            <div class="relative">
+                                <input name="frais" class="w-full pl-sm pr-12 bg-surface-container-low border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-primary outline-none font-body-sm text-body-sm" placeholder="100" type="number" />
+                                <span class="absolute right-3 top-2.5 text-secondary font-label-sm">Ar</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-sm pt-md">
+                            <button class="flex-grow bg-primary text-on-primary py-sm rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-md" type="submit">
+                                Ajouter
+                            </button>
+                            <button class="px-md py-sm bg-surface-container border border-outline-variant text-on-surface-variant rounded-lg font-label-md text-label-md hover:bg-outline-variant transition-colors" type="reset">
+                                Réinitialiser
+                            </button>
+                        </div>
+                    </form>
+                    <!-- Quick Stats in the Form Column -->
+                    <?php
+                    $successMessage = session()->getFlashdata('success');
+                    $displayMessage = $successMessage ?? $message ?? null;
+                    ?>
 
-<?php if ($displayMessage): ?>
-    <?php $isSuccess = !empty($successMessage); ?>
+                    <?php if ($displayMessage): ?>
+                        <?php $isSuccess = !empty($successMessage); ?>
 
     <div class="mt-xl p-md rounded-lg border <?= $isSuccess ? 'bg-success-container/10 border-success/20' : 'bg-primary-container/10 border-primary-container/20' ?>">
         <div class="flex items-center gap-sm mb-xs">
@@ -200,12 +208,90 @@ if (isset($liste)) {
                     <a href="<?= base_url('frais/delete/' . $item['id']) ?>" class="p-2 text-error hover:bg-error/10 rounded-full transition-colors" title="Supprimer" onclick="return confirm('Supprimer ce barème ?')">
                         <i class="bi-trash text-[20px]"></i>
                     </a>
+                        <div class="mt-xl p-md rounded-lg border <?= $isSuccess ? 'bg-success-container/10 border-success/20' : 'bg-primary-container/10 border-primary-container/20' ?>">
+                            <div class="flex items-center gap-sm mb-xs">
+                                <span class="material-symbols-outlined <?= $isSuccess ? 'text-success' : 'text-primary' ?> text-[20px]">
+                                    <?= $isSuccess ? 'check_circle' : 'info' ?>
+                                </span>
+                                <p class="font-label-md text-label-md <?= $isSuccess ? 'text-success' : 'text-primary' ?>">
+                                    <?= $isSuccess ? 'Succès' : 'Info Barèmes' ?>
+                                </p>
+                            </div>
+
+                            <div class="text-body-sm font-body-sm text-on-secondary-container">
+                                <?php if (is_array($displayMessage) || is_object($displayMessage)): ?>
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <?php foreach ($displayMessage as $msg): ?>
+                                            <li><?= htmlspecialchars(is_array($msg) ? implode(', ', $msg) : $msg) ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php else: ?>
+                                    <p><?= htmlspecialchars($displayMessage) ?></p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <!-- Bloc par défaut si aucun message dynamique n'est présent -->
+                        <div class="mt-xl p-md bg-primary-container/10 rounded-lg border border-primary-container/20">
+                            <div class="flex items-center gap-sm mb-xs">
+                                <span class="material-symbols-outlined text-primary text-[20px]">info</span>
+                                <p class="font-label-md text-label-md text-primary">Info Barèmes</p>
+                            </div>
+                            <p class="text-body-sm font-body-sm text-on-secondary-container">
+                                Les frais sont prélevés instantanément sur le compte de l'émetteur lors de la validation.
+                            </p>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            </td>
-        </tr>
-<?php }
-}
-?>
+                <!-- Table Section: Card Style -->
+                <div class="col-span-12 lg:col-span-8 bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col">
+                    <div class="px-lg py-md border-b border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+                        <div class="flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-secondary">list_alt</span>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface">Liste des barèmes actifs</h3>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto flex-grow">
+                        <table class="w-full text-left border-collapse">
+                            <thead class="bg-surface-container-low">
+                                <tr>
+                                    <th class="px-lg py-sm font-label-md text-label-md text-secondary border-b border-outline-variant">Type d'opération</th>
+                                    <th class="px-lg py-sm font-label-md text-label-md text-secondary border-b border-outline-variant">Montant minimal</th>
+                                    <th class="px-lg py-sm font-label-md text-label-md text-secondary border-b border-outline-variant">Montant maximal</th>
+                                    <th class="px-lg py-sm font-label-md text-label-md text-secondary border-b border-outline-variant">Frais</th>
+                                    <th class="px-lg py-sm font-label-md text-label-md text-secondary border-b border-outline-variant text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-outline-variant">
+                                <?php
+                                if (isset($liste)) {
+                                    foreach ($liste as $item) {
+                                ?>
+                                        <tr class="hover:bg-primary/5 transition-colors group">
+                                            <td class="px-lg py-md">
+                                                <div class="flex items-center gap-sm">
+                                                    <span class="font-body-md text-body-md text-on-surface"><?= $item['nom_operation'] ?></span>
+                                                </div>
+                                            </td>
+                                            <td class="px-lg py-md font-body-md text-body-md text-on-surface"><?= $item['montant1'] ?> Ar</td>
+                                            <td class="px-lg py-md font-body-md text-body-md text-on-surface"><?= $item['montant2'] ?> Ar</td>
+                                            <td class="px-lg py-md">
+                                                <span class="px-sm py-1 bg-green-100 text-green-700 rounded-pill font-label-md text-label-md"><?= $item['frais'] ?> Ar</span>
+                                            </td>
+                                            <td class="px-lg py-md text-right">
+                                                <div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <a href="<?= base_url('frais/edit/' . $item['id']) ?>" class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors" title="Modifier">
+                                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                                    </a>
+                                                    <a href="<?= base_url('frais/delete/' . $item['id']) ?>" class="p-2 text-error hover:bg-error/10 rounded-full transition-colors" title="Supprimer" onclick="return confirm('Supprimer ce barème ?')">
+                                                        <span class="material-symbols-outlined text-[20px]">delete</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                <?php }
+                                }
+                                ?>
 
 </tbody>
 </table>
@@ -243,4 +329,5 @@ if (isset($liste)) {
 </div>
 </main>
 </body>
+
 </html>
