@@ -32,7 +32,7 @@ $adminItems = [
 
         <a
             href="<?= base_url() ?>promotion">
-            <span class="font-label-md text-label-md">promotion</span>
+            <span class="font-label-md text-label-md">Ajouter promotion</span>
         </a>
     </nav>
     <div class="p-lg border-t border-outline-variant">
