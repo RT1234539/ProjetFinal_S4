@@ -129,15 +129,16 @@
                                 <?php foreach ($clientsData as $client): ?>
                                     <?php $solde = (float) ($client['solde'] ?? 0); ?>
                                     <?php $statut = $solde > 0 ? 'Actif' : 'Inactif'; ?>
-                                    <tr class="hover:bg-primary/5 transition-colors group">
+                                    <tr class="hover:bg-primary/5 transition-colors group cursor-pointer" onclick="window.location='<?= base_url('clients/detail/' . esc($client['id_utilisateur'])) ?>'">
                                         <td class="px-lg py-md font-label-md text-label-md text-primary"><?= esc($client['numero'] ?? '') ?></td>
                                         <td class="px-lg py-md font-label-md text-label-md text-on-surface"><?= number_format($solde, 0, ',', ' ') ?> Ar</td>
                                         <td class="px-lg py-md font-label-md text-label-md text-secondary whitespace-nowrap"><?= esc($client['nombre_operations'] ?? 0) ?></td>
 
                                         <td class="px-lg py-md text-right">
-                                            <button class="p-xs text-secondary hover:text-primary transition-colors" type="button">
-                                                <i class="bi-three-dots-vertical"></i>
-                                            </button>
+                                            <a href="<?= base_url('clients/detail/' . esc($client['id_utilisateur'])) ?>" class="inline-flex items-center gap-xs px-sm py-1 text-primary hover:bg-primary/10 rounded-lg transition-colors font-label-md" onclick="event.stopPropagation()">
+                                                <i class="bi-eye text-[16px]"></i>
+                                                Détail
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
