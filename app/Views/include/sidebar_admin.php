@@ -24,7 +24,7 @@ $adminItems = [
         <?php foreach ($adminItems as $key => $item): ?>
             <?php $isActive = ($active === $key); ?>
             <a class="flex items-center px-lg py-sm <?= $isActive ? 'bg-primary-container text-on-primary-container' : 'text-secondary hover:bg-surface-container' ?> rounded-lg mx-2 my-1 transition-transform hover:translate-x-1"
-               href="<?= base_url($item['url']) ?>">
+                href="<?= base_url($item['url']) ?>">
                 <i class="<?= $item['icon'] ?> mr-sm"></i>
                 <span class="font-label-md text-label-md"><?= $item['label'] ?></span>
             </a>
@@ -32,7 +32,7 @@ $adminItems = [
     </nav>
     <div class="p-lg border-t border-outline-variant">
         <a class="flex items-center px-lg py-sm text-secondary hover:bg-error-container hover:text-on-error-container rounded-lg transition-colors"
-           href="<?= base_url('logout') ?>">
+            href="<?= base_url('logout') ?>">
             <i class="bi-box-arrow-right mr-sm"></i>
             <span class="font-label-md text-label-md">Déconnexion</span>
         </a>

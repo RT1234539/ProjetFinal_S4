@@ -5,7 +5,7 @@ $clientItems = [
     'depot'     => ['url' => 'clients/depot',      'icon' => 'bi-plus-circle', 'label' => 'Dépôt'],
     'retrait'   => ['url' => 'clients/retrait',    'icon' => 'bi-credit-card', 'label' => 'Retrait'],
     'transfert' => ['url' => 'clients/transfert',  'icon' => 'bi-arrow-left-right', 'label' => 'Transfert'],
-    'historique'=> ['url' => 'clients/historique', 'icon' => 'bi-clock-history','label' => 'Historique'],
+    'historique' => ['url' => 'clients/historique', 'icon' => 'bi-clock-history', 'label' => 'Historique'],
 ];
 ?>
 <!-- SideNavBar Desktop -->
@@ -22,7 +22,7 @@ $clientItems = [
         <?php foreach ($clientItems as $key => $item): ?>
             <?php $isActive = ($active === $key); ?>
             <a class="flex items-center gap-4 p-4 <?= $isActive ? 'bg-primary-container text-on-primary-container rounded-lg font-bold' : 'text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all' ?>"
-               href="<?= base_url($item['url']) ?>">
+                href="<?= base_url($item['url']) ?>">
                 <i class="<?= $item['icon'] ?>"></i>
                 <span class="text-label-md font-label-md"><?= $item['label'] ?></span>
             </a>
@@ -30,7 +30,7 @@ $clientItems = [
     </nav>
     <div class="p-4 border-t border-outline-variant mt-auto">
         <a class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-error-container hover:text-on-error-container rounded-lg transition-colors"
-           href="<?= base_url('logout') ?>">
+            href="<?= base_url('logout') ?>">
             <i class="bi-box-arrow-right"></i>
             <span class="text-label-md font-label-md">Déconnexion</span>
         </a>
@@ -42,13 +42,13 @@ $clientItems = [
     <?php foreach ($clientItems as $key => $item): ?>
         <?php $isActive = ($active === $key); ?>
         <a class="flex flex-col items-center justify-center <?= $isActive ? 'bg-primary-container text-on-primary-container rounded-full px-4 py-1' : 'text-on-secondary-container hover:text-primary transition-all' ?> active:scale-90 duration-150 transition-all"
-           href="<?= base_url($item['url']) ?>">
+            href="<?= base_url($item['url']) ?>">
             <i class="<?= $item['icon'] ?>"></i>
             <span class="text-label-sm font-label-sm"><?= $item['label'] ?></span>
         </a>
     <?php endforeach; ?>
     <a class="flex flex-col items-center justify-center text-on-secondary-container hover:text-error transition-all active:scale-90 duration-150"
-       href="<?= base_url('logout') ?>">
+        href="<?= base_url('logout') ?>">
         <i class="bi-box-arrow-right"></i>
         <span class="text-label-sm font-label-sm">Sortir</span>
     </a>

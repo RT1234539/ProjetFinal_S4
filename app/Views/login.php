@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Connexion | NexusPay</title>
     <script src="<?= base_url('assets/tailwind/tailwind.js') ?>?plugins=forms,container-queries"></script>
-    <link href="<?= base_url('assets/fonts/fonts.css') ?>" rel="stylesheet"/>
+    <link href="<?= base_url('assets/fonts/fonts.css') ?>" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -90,7 +90,7 @@
                         "headline-lg-mobile": ["Inter"],
                         "label-md": ["Inter"]
                     },
-                    "fontSize": { 
+                    "fontSize": {
                         "headline-md": ["28px", {
                             "lineHeight": "1.3",
                             "letterSpacing": "-0.01em",
@@ -215,16 +215,16 @@
             </div>
             <div class="glass-card rounded-xl p-xl lg:p-margin-desktop border border-outline-variant/20">
                 <?php if (session()->getFlashdata('error')): ?>
-                <div class="mb-lg p-md bg-error-container text-on-error-container rounded-lg flex items-center gap-sm text-body-sm font-body-sm">
-                    <i class="bi-x-circle text-[20px]"></i>
-                    <?= session()->getFlashdata('error') ?>
-                </div>
+                    <div class="mb-lg p-md bg-error-container text-on-error-container rounded-lg flex items-center gap-sm text-body-sm font-body-sm">
+                        <i class="bi-x-circle text-[20px]"></i>
+                        <?= session()->getFlashdata('error') ?>
+                    </div>
                 <?php endif; ?>
                 <?php if (!empty($message) && ($status ?? '') === 'error'): ?>
-                <div class="mb-lg p-md bg-error-container text-on-error-container rounded-lg flex items-center gap-sm text-body-sm font-body-sm">
-                    <i class="bi-x-circle text-[20px]"></i>
-                    <?= esc($message) ?>
-                </div>
+                    <div class="mb-lg p-md bg-error-container text-on-error-container rounded-lg flex items-center gap-sm text-body-sm font-body-sm">
+                        <i class="bi-x-circle text-[20px]"></i>
+                        <?= esc($message) ?>
+                    </div>
                 <?php endif; ?>
                 <header class="mb-xl text-left">
                     <h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Heureux de vous revoir !</h2>
