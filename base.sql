@@ -129,3 +129,22 @@ CREATE TABLE promotion (
 );
 
 INSERT INTO promotion(quantite) VALUES (10);
+
+
+CREATE TABLE epargne (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_utilisateur INTEGER,
+    quantite INTEGER,
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur (id)
+    
+);
+
+INSERT INTO epargne(id_utilisateur,quantite) VALUES (1,10);
+
+
+CREATE TABLE soleEpargne(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_utilisateur INTEGER,
+    solde INTEGER,
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur (id)
+);
