@@ -8,6 +8,7 @@ use App\Models\PrefixModel;
 use App\Models\UtilisateurModel;
 use App\Models\AutreOperateurModel;
 use App\Models\OperateurExterneModel;
+use App\Models\PromotionModel;
 
 class OperationUtilisateurController extends BaseController
 {
@@ -138,7 +139,14 @@ class OperationUtilisateurController extends BaseController
         $frais = $this->fraisModel->getFraisApplicable($montant, 3);
         $montantFrais = $frais ? $frais['frais'] : 0;
 
-        $total = $montant + $montantFrais;
+        $promotionModel = new PromotionModel();
+        $reduction = $promotionModel->find(1);
+
+        $totalReduction = $reduction ? $reduction["quantite"] : 0;
+
+        $montantFraisAvecReduction = $montantFrais * ($totalReduction / 100);
+
+        $total = $montant + $montantFraisAvecReduction;
 
         // If including withdrawal fees for the recipient
         if ($inclureFraisRetrait) {

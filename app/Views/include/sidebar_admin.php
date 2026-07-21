@@ -29,6 +29,11 @@ $adminItems = [
                 <span class="font-label-md text-label-md"><?= $item['label'] ?></span>
             </a>
         <?php endforeach; ?>
+
+        <a
+            href="<?= base_url() ?>promotion">
+            <span class="font-label-md text-label-md">promotion</span>
+        </a>
     </nav>
     <div class="p-lg border-t border-outline-variant">
         <a class="flex items-center px-lg py-sm text-secondary hover:bg-error-container hover:text-on-error-container rounded-lg transition-colors"

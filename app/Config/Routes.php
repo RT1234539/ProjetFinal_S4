@@ -80,3 +80,8 @@ $routes->group('', ['filter' => 'auth:client'], function ($routes) {
         $routes->get('historique', 'OperationUtilisateurController::historique');
     });
 });
+
+$routes->group('', ['filter' => 'auth:admin'], function ($routes) {
+    $routes->get('promotion', 'PromotionController::updateForm');
+    $routes->post('promotion', 'PromotionController::update');
+});

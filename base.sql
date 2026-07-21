@@ -120,3 +120,12 @@ FROM utilisateur u
 LEFT JOIN operation_utilisateur ou
     ON u.id = ou.id_utilisateur
 GROUP BY u.id, u.numero, u.id_role;
+
+DROP TABLE IF EXISTS promotion;
+
+CREATE TABLE promotion (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    quantite INTEGER
+);
+
+INSERT INTO promotion(quantite) VALUES (10);
