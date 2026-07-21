@@ -22,11 +22,11 @@
         <header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface shadow-sm">
             <div class="flex items-center gap-md">
                 <button class="lg:hidden p-xs">
-                    <span class="material-symbols-outlined">menu</span>
+                    <span class="bi bi-list text-2xl"></span>
                 </button>
                 <div class="relative group">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-outline">
-                        <span class="material-symbols-outlined">search</span>
+                        <span class="bi bi-search text-2xl"></span>
                     </span>
                     <input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary w-64 transition-all" placeholder="Rechercher un barème..." type="text" />
                 </div>
@@ -34,7 +34,9 @@
             <div class="flex items-center gap-md">
                 <div class="h-8 w-px bg-outline-variant"></div>
                 <div class="flex items-center gap-sm cursor-pointer hover:bg-surface-container p-1 rounded-lg transition-colors">
-                    <img class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="Close up portrait of a professional African male administrator in a light blue corporate shirt, smiling warmly with a clean modern office background, soft daylight illumination, professional business photography style." src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" />
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-outline-variant bg-surface text-primary text-xl">
+                        <i class="bi bi-person-circle"></i>
+                    </span>
                     <div class="hidden md:block">
                         <p class="font-label-md text-label-md text-on-surface leading-none">Admin</p>
                         <p class="text-label-sm font-label-sm text-secondary">Operateur</p>
@@ -62,7 +64,7 @@
                 <!-- Form Section: Card Style -->
                 <div class="col-span-12 lg:col-span-4 bg-white rounded-xl shadow-sm border border-outline-variant p-lg">
                     <div class="flex items-center gap-sm mb-lg">
-                        <span class="material-symbols-outlined text-primary">add_box</span>
+                        <span class="bi bi-plus-square text-primary text-2xl"></span>
                         <h3 class="font-headline-sm text-headline-sm text-on-surface">Ajouter un palier</h3>
                     </div>
                     <form action="<?= base_url() ?>frais/ajouter" method="post" class="space-y-md" id="fee-form">
@@ -124,9 +126,7 @@
 
                         <div class="mt-xl p-md rounded-lg border <?= $isSuccess ? 'bg-success-container/10 border-success/20' : 'bg-primary-container/10 border-primary-container/20' ?>">
                             <div class="flex items-center gap-sm mb-xs">
-                                <span class="material-symbols-outlined <?= $isSuccess ? 'text-success' : 'text-primary' ?> text-[20px]">
-                                    <?= $isSuccess ? 'check_circle' : 'info' ?>
-                                </span>
+                                <span class="bi <?= $isSuccess ? 'bi-check-circle text-success' : 'bi-info-circle text-primary' ?> text-[20px]"></span>
                                 <p class="font-label-md text-label-md <?= $isSuccess ? 'text-success' : 'text-primary' ?>">
                                     <?= $isSuccess ? 'Succès' : 'Info Barèmes' ?>
                                 </p>
@@ -148,7 +148,7 @@
                         <!-- Bloc par défaut si aucun message dynamique n'est présent -->
                         <div class="mt-xl p-md bg-primary-container/10 rounded-lg border border-primary-container/20">
                             <div class="flex items-center gap-sm mb-xs">
-                                <span class="material-symbols-outlined text-primary text-[20px]">info</span>
+                                <span class="bi bi-info-circle text-primary text-[20px]"></span>
                                 <p class="font-label-md text-label-md text-primary">Info Barèmes</p>
                             </div>
                             <p class="text-body-sm font-body-sm text-on-secondary-container">
@@ -161,7 +161,7 @@
                 <div class="col-span-12 lg:col-span-8 bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col">
                     <div class="px-lg py-md border-b border-outline-variant flex items-center justify-between bg-surface-container-lowest">
                         <div class="flex items-center gap-sm">
-                            <span class="material-symbols-outlined text-secondary">list_alt</span>
+                            <span class="bi bi-list-ul text-secondary text-xl"></span>
                             <h3 class="font-headline-sm text-headline-sm text-on-surface">Liste des barèmes actifs</h3>
                         </div>
                     </div>
@@ -195,10 +195,10 @@
                                             <td class="px-lg py-md text-right">
                                                 <div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
                                                     <a href="<?= base_url('frais/edit/' . $item['id']) ?>" class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors" title="Modifier">
-                                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                                        <span class="bi bi-pencil text-[20px]"></span>
                                                     </a>
                                                     <a href="<?= base_url('frais/delete/' . $item['id']) ?>" class="p-2 text-error hover:bg-error/10 rounded-full transition-colors" title="Supprimer" onclick="return confirm('Supprimer ce barème ?')">
-                                                        <span class="material-symbols-outlined text-[20px]">delete</span>
+                                                        <span class="bi bi-trash text-[20px]"></span>
                                                     </a>
                                                 </div>
                                             </td>
@@ -219,7 +219,7 @@
                         <button class="mt-md px-lg py-sm bg-white text-primary rounded-lg font-label-md text-label-md hover:shadow-xl transition-all">Accéder au Simulateur</button>
                     </div>
                     <div class="mt-md md:mt-0 relative w-48 h-32 opacity-20">
-                        <span class="material-symbols-outlined text-[120px] absolute -right-4 -bottom-4">calculate</span>
+                        <span class="bi bi-calculator text-[120px] absolute -right-4 -bottom-4"></span>
                     </div>
                     <!-- Decorative element -->
                     <div class="absolute -top-12 -right-12 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
