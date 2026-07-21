@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Connexion Administrateur | PayGuard Admin</title>
+    <title>Connexion | NexusPay</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
@@ -187,11 +187,11 @@
             <div class="inline-flex items-center justify-center p-sm bg-white/10 rounded-2xl backdrop-blur-md border border-white/20 mb-lg shadow-2xl">
                 <span class="material-symbols-outlined text-[64px] text-white" data-icon="account_balance_wallet">account_balance_wallet</span>
             </div>
-            <h1 class="font-headline-lg text-headline-lg text-white">PayGuard</h1>
-            <p class="font-headline-sm text-headline-sm text-primary-fixed-dim font-medium">Console d'Administration Unifiée</p>
+            <h1 class="font-headline-lg text-headline-lg text-white">NexusPay</h1>
+            <p class="font-headline-sm text-headline-sm text-primary-fixed-dim font-medium">Gestion Mobile Money</p>
             <div class="pt-xl opacity-80">
                 <p class="font-body-lg text-body-lg text-white/90 leading-relaxed">
-                    Gérez vos transactions financières, surveillez les flux en temps réel et sécurisez votre écosystème avec notre interface de pointe.
+                    Gérez vos transactions financières, dépôts, retraits et transferts en toute sécurité avec NexusPay.
                 </p>
             </div>
         </div>
@@ -212,13 +212,25 @@
                 <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-sm shadow-lg shadow-primary/20">
                     <span class="material-symbols-outlined text-white text-[30px]" data-icon="account_balance_wallet">account_balance_wallet</span>
                 </div>
-                <h1 class="font-headline-md text-headline-md text-primary">PayGuard</h1>
+                <h1 class="font-headline-md text-headline-md text-primary">NexusPay</h1>
             </div>
             <div class="glass-card rounded-xl p-xl lg:p-margin-desktop border border-outline-variant/20">
+                <?php if (session()->getFlashdata('error')): ?>
+                <div class="mb-lg p-md bg-error-container text-on-error-container rounded-lg flex items-center gap-sm text-body-sm font-body-sm">
+                    <span class="material-symbols-outlined text-[20px]">error</span>
+                    <?= session()->getFlashdata('error') ?>
+                </div>
+                <?php endif; ?>
+                <?php if (!empty($message) && ($status ?? '') === 'error'): ?>
+                <div class="mb-lg p-md bg-error-container text-on-error-container rounded-lg flex items-center gap-sm text-body-sm font-body-sm">
+                    <span class="material-symbols-outlined text-[20px]">error</span>
+                    <?= esc($message) ?>
+                </div>
+                <?php endif; ?>
                 <header class="mb-xl text-left">
                     <h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Heureux de vous revoir !</h2>
                     <p class="font-body-md text-body-md text-on-surface-variant">
-                        Accédez à votre console d'administration en saisissant vos identifiants sécurisés.
+                        Accédez à votre espace NexusPay en saisissant votre numéro de téléphone.
                     </p>
                 </header>
                 <form action="<?= base_url() ?>login" method="post" class="space-y-lg" id="loginForm">
@@ -268,7 +280,7 @@
             </div>
             <!-- Minimalist Footer -->
             <footer class="mt-lg text-center">
-                <p class="font-label-sm text-label-sm text-outline">© <?= date('Y') ?> PayGuard Financial Solutions • Côte d'Ivoire</p>
+                <p class="font-label-sm text-label-sm text-outline">© <?= date('Y') ?> NexusPay</p>
             </footer>
         </div>
     </main>
